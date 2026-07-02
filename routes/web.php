@@ -1,0 +1,18 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\PageController;
+
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/about-group', [PageController::class, 'about'])->name('about');
+Route::get('/services', [PageController::class, 'services'])->name('services');
+Route::get('/projects', [PageController::class, 'projects'])->name('projects');
+Route::get('/news', [PageController::class, 'news'])->name('news');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+
+// Business Areas
+Route::get('/enviro', [PageController::class, 'enviro'])->name('enviro');
+Route::get('/panther-oil', [PageController::class, 'pantherOil'])->name('panther-oil');
+Route::get('/panther-mat', [PageController::class, 'pantherMat'])->name('panther-mat');
+Route::get('/panther-build', [PageController::class, 'pantherBuild'])->name('panther-build');

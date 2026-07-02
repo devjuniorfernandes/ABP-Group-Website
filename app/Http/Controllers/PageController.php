@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class PageController extends Controller
+{
+    public function home()
+    {
+        return view('pages.home');
+    }
+
+    public function about()
+    {
+        return view('pages.about');
+    }
+
+    public function services()
+    {
+        return view('pages.services');
+    }
+
+    public function projects()
+    {
+        return view('pages.projects');
+    }
+
+    public function news()
+    {
+        return view('pages.news');
+    }
+
+    public function contact()
+    {
+        return view('pages.contact');
+    }
+
+    public function enviro()
+    {
+        return view('pages.enviro');
+    }
+
+    public function pantherOil()
+    {
+        return view('pages.panther-oil');
+    }
+
+    public function pantherMat()
+    {
+        return view('pages.panther-mat');
+    }
+
+    public function pantherBuild()
+    {
+        return view('pages.panther-build');
+    }
+}
