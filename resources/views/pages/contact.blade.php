@@ -100,7 +100,7 @@
         <div style="height: 400px; width: 100%; position: relative; background-color: #e2e8f0; overflow: hidden; display: flex; align-items: center; justify-content: center;">
             <!-- Simulating Map graphic with styled elements -->
             <div style="position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #cbd5e1 25%, #94a3b8 100%); opacity: 0.7;"></div>
-            <div style="position: relative; z-index: 2; text-align: center; background-color: var(--color-white); padding: 32px; border-radius: var(--border-radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 400px;">
+            <div style="position: relative; z-index: 2; text-align: center; background-color: var(--color-white); padding: 32px; border-radius: var(--border-radius-md); box-: 0 10px 30px rgba(0,0,0,0.1); max-width: 400px;">
                 <h4 style="color: var(--color-primary-corporate); margin-bottom: 8px;">Centro Logístico Talatona</h4>
                 <p style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px;">Armazém D07, Belas - Talatona, Luanda</p>
                 <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px; background-color: var(--color-accent-corporate); color: var(--color-primary-corporate);">Ver no Google Maps</a>

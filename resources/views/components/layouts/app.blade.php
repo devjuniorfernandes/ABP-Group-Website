@@ -1,3 +1,4 @@
+@props(['logo' => null, 'logoUrl' => null, 'hideFooter' => false])
 <!DOCTYPE html>
 <html lang="pt-PT">
 
@@ -35,7 +36,11 @@
 <body>
 
     <!-- Header Navigation -->
-    <x-navbar />
+    @if($logo)
+        <x-navbar logo="{{ $logo }}" logoUrl="{{ $logoUrl ?? route('home') }}" />
+    @else
+        <x-navbar />
+    @endif
 
     <!-- Main Content -->
     <main>
@@ -43,7 +48,9 @@
     </main>
 
     <!-- Footer -->
-    <x-footer />
+    @if(!$hideFooter)
+        <x-footer />
+    @endif
 
     <!-- Floating Support Button -->
     <x-floating-support />

@@ -26,9 +26,19 @@ class PageController extends Controller
         return view('pages.projects');
     }
 
+    public function projectDetails()
+    {
+        return view('pages.project-details');
+    }
+
     public function news()
     {
         return view('pages.news');
+    }
+
+    public function newsDetails()
+    {
+        return view('pages.news-details');
     }
 
     public function contact()

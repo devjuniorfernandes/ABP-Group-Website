@@ -8,7 +8,9 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about-group', [PageController::class, 'about'])->name('about');
 Route::get('/services', [PageController::class, 'services'])->name('services');
 Route::get('/projects', [PageController::class, 'projects'])->name('projects');
+Route::get('/projects/details', [PageController::class, 'projectDetails'])->name('project.details');
 Route::get('/news', [PageController::class, 'news'])->name('news');
+Route::get('/news/details', [PageController::class, 'newsDetails'])->name('news.details');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 // Business Areas

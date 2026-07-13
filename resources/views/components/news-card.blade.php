@@ -2,19 +2,37 @@
     'date' => '',
     'title' => '',
     'summary' => '',
+    'image' => '',
     'link' => '#'
 ])
 
-<div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-corporate-primary/15 transition-all duration-300 flex flex-col justify-between group">
-    <div class="p-8">
-        <span class="font-primary text-[11px] font-bold text-gray-400 uppercase tracking-widest block mb-4">{{ $date }}</span>
-        <h3 class="font-primary text-lg font-bold text-corporate-primary mb-3 leading-snug">
-            <a href="{{ $link }}" class="hover:text-corporate-secondary transition-colors">{{ $title }}</a>
-        </h3>
-        <p class="font-secondary text-sm text-gray-500 leading-relaxed mb-6">{{ $summary }}</p>
-        <a href="{{ $link }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-corporate-primary hover:text-corporate-accent transition-colors">
-            Ler mais 
-            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+<div class="bg-white flex flex-col gap-4 h-full group cursor-pointer transition-shadow hover:shadow-md news-card-wrapper" data-title="{{ strtolower($title) }}">
+    <!-- Image section -->
+    <div class="w-full shrink-0">
+        <a href="{{ $link }}" class="block w-full aspect-video">
+            <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-full object-cover rounded-sm">
         </a>
+    </div>
+
+    <!-- Content section -->
+    <div class="flex-1 flex flex-col py-2 px-2 pb-4">
+        <!-- Title with red underline -->
+        <h3 class="font-primary text-xl font-bold text-gray-900 mb-4 inline-block">
+            <a href="{{ $link }}" class="hover:text-[#e51718] transition-colors">{{ $title }}</a>
+            <div class="w-10 border-b-2 border-[#e51718] mt-2"></div>
+        </h3>
+        
+        <!-- Summary text -->
+        <p class="font-secondary text-sm text-gray-500 leading-relaxed mb-4">
+            {{ $summary }}
+        </p>
+
+        <!-- Spacer to push date to bottom -->
+        <div class="flex-grow"></div>
+        
+        <!-- Date at bottom right -->
+        <div class="text-right">
+            <span class="font-primary text-xs font-bold text-gray-400">{{ $date }}</span>
+        </div>
     </div>
 </div>

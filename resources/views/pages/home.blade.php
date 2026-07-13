@@ -91,14 +91,20 @@
         <!-- Background Parallax Shapes -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
             <!-- Glowing background orbs -->
-            <div class="parallax-layer-left absolute left-[15%] top-[15%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] bg-white/10 rounded-full blur-[80px] pointer-events-none"></div>
-            <div class="parallax-layer-right absolute right-[20%] bottom-[10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-white/15 rounded-full blur-[100px] pointer-events-none"></div>
-            
+            <div
+                class="parallax-layer-left absolute left-[15%] top-[15%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] bg-white/10 rounded-full blur-[80px] pointer-events-none">
+            </div>
+            <div
+                class="parallax-layer-right absolute right-[20%] bottom-[10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-white/15 rounded-full blur-[100px] pointer-events-none">
+            </div>
+
             <!-- Visible circular shapes with different transparency levels based on brand colors -->
-            <div class="parallax-layer-left absolute left-[28%] bottom-[20%] w-[160px] h-[160px] md:w-[240px] md:h-[240px] bg-white/5 border-2 border-white/20 rounded-full pointer-events-none flex items-center justify-center">
+            <div
+                class="parallax-layer-left absolute left-[28%] bottom-[20%] w-[160px] h-[160px] md:w-[240px] md:h-[240px] bg-white/5 border-2 border-white/20 rounded-full pointer-events-none flex items-center justify-center">
                 <div class="w-4/5 h-4/5 border border-white/10 rounded-full"></div>
             </div>
-            <div class="parallax-layer-right absolute right-[30%] top-[20%] w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-white/10 border border-white/15 rounded-full pointer-events-none flex items-center justify-center">
+            <div
+                class="parallax-layer-right absolute right-[30%] top-[20%] w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-white/10 border border-white/15 rounded-full pointer-events-none flex items-center justify-center">
                 <div class="w-2/3 h-2/3 border border-white/10 rounded-full"></div>
             </div>
         </div>
@@ -126,7 +132,7 @@
                     <div class="flex md:hidden flex-col items-center w-full">
                         <!-- Top Node -->
                         <a href="{{ route('home') }}"
-                            class="bg-white rounded-xl p-3 shadow-md z-10 w-[150px] h-[60px] text-center flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            class="bg-white rounded-xl p-3  z-10 w-[150px] h-[60px] text-center flex items-center justify-center transition-all duration-300 hover:scale-105 ">
                             <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group"
                                 class="h-8 w-auto object-contain">
                         </a>
@@ -136,7 +142,7 @@
 
                         <!-- PantherBUILD -->
                         <a href="{{ route('panther-build') }}"
-                            class="bg-white rounded-xl p-3 shadow-md text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
                             <img src="{{ asset('images/logos/abp_panthrtbuildabp_.png') }}" alt="PantherBUILD"
                                 class="h-7 w-auto object-contain">
                         </a>
@@ -146,7 +152,7 @@
 
                         <!-- PantherOIL -->
                         <a href="{{ route('panther-oil') }}"
-                            class="bg-white rounded-xl p-3 shadow-md text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
                             <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL"
                                 class="h-7 w-auto object-contain">
                         </a>
@@ -156,7 +162,7 @@
 
                         <!-- PantherMAT -->
                         <a href="{{ route('panther-mat') }}"
-                            class="bg-white rounded-xl p-3 shadow-md text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
                             <img src="{{ asset('images/logos/panthermatabp_.png') }}" alt="PantherMAT"
                                 class="h-7 w-auto object-contain">
                         </a>
@@ -166,7 +172,7 @@
 
                         <!-- Bottom Node -->
                         <a href="{{ route('enviro') }}"
-                            class="bg-white rounded-xl p-3 shadow-md text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
                             <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.ao"
                                 class="h-7 w-auto object-contain">
                         </a>
@@ -176,7 +182,7 @@
                     <div class="hidden md:flex flex-col items-center w-full">
                         <!-- Top Node -->
                         <a href="{{ route('home') }}"
-                            class="bg-white rounded-xl p-3 shadow-md z-10 w-[170px] h-[70px] text-center flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            class="bg-white rounded-xl p-3  z-10 w-[170px] h-[70px] text-center flex items-center justify-center transition-all duration-300 hover:scale-105 ">
                             <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group"
                                 class="h-9 w-auto object-contain">
                         </a>
@@ -191,21 +197,21 @@
 
                             <!-- PantherBUILD -->
                             <a href="{{ route('panther-build') }}"
-                                class="bg-white rounded-xl p-3 shadow-md text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 ">
                                 <img src="{{ asset('images/logos/abp_panthrtbuildabp_.png') }}" alt="PantherBUILD"
                                     class="h-7 w-auto object-contain">
                             </a>
 
                             <!-- PantherOIL -->
                             <a href="{{ route('panther-oil') }}"
-                                class="bg-white rounded-xl p-3 shadow-md text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 ">
                                 <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL"
                                     class="h-7 w-auto object-contain">
                             </a>
 
                             <!-- PantherMAT -->
                             <a href="{{ route('panther-mat') }}"
-                                class="bg-white rounded-xl p-3 shadow-md text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 ">
                                 <img src="{{ asset('images/logos/panthermatabp_.png') }}" alt="PantherMAT"
                                     class="h-7 w-auto object-contain">
                             </a>
@@ -216,7 +222,7 @@
 
                         <!-- Bottom Node -->
                         <a href="{{ route('enviro') }}"
-                            class="bg-white rounded-xl p-3 shadow-md text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 ">
                             <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.ao"
                                 class="h-7 w-auto object-contain">
                         </a>
@@ -354,7 +360,8 @@
     <section class="relative py-24 overflow-hidden sustainability-section">
         <!-- Parallax Background Image -->
         <div class="absolute inset-0 bg-cover bg-center sustainability-bg"
-            style="background-image: url('{{ asset('images/forest-canopy.png') }}'); transform: translate3d(0px, 0px, 0px) scale(1.15);"></div>
+            style="background-image: url('{{ asset('images/forest-canopy.png') }}'); transform: translate3d(0px, 0px, 0px) scale(1.15);">
+        </div>
         <!-- Dark green overlay to match mockup -->
         <div class="absolute inset-0 bg-[#000000]/70 z-10"></div>
 

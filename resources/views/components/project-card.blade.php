@@ -7,7 +7,7 @@
     'accentColor' => 'brand-red',
 ])
 
-<a href="{{ $link }}">
+<a href="{{ $link }}" data-category="{{ $category }}" data-title="{{ strtolower($title) }}" class="project-card-wrapper block">
     <div
         class="bg-white overflow-hidden border border-gray-100 transition-all duration-300 transform hover:-translate-y-2 group">
         <div class="relative overflow-hidden aspect-[16/10]">
