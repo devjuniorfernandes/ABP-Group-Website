@@ -453,8 +453,8 @@
                             929 414 778</a>
                     </li>
                     <li class="flex items-center gap-2.5">
-                        <a href="mailto:geral@abpgroup.co.ao"
-                            class="hover:text-white/70 transition-colors">geral@abpgroup.co.ao</a>
+                        <a href="mailto:geral@abp.co.ao"
+                            class="hover:text-white/70 transition-colors">geral@abp.co.ao</a>
                     </li>
                 </ul>
             </div>

@@ -18,3 +18,9 @@ Route::get('/enviro', [PageController::class, 'enviro'])->name('enviro');
 Route::get('/panther-oil', [PageController::class, 'pantherOil'])->name('panther-oil');
 Route::get('/panther-mat', [PageController::class, 'pantherMat'])->name('panther-mat');
 Route::get('/panther-build', [PageController::class, 'pantherBuild'])->name('panther-build');
+
+// Institutional Pages
+Route::get('/certificacoes', [PageController::class, 'certifications'])->name('certifications');
+Route::get('/sustentabilidade', [PageController::class, 'sustainability'])->name('sustainability');
+Route::get('/carreiras', [PageController::class, 'careers'])->name('careers');
+Route::get('/politica-de-privacidade', [PageController::class, 'privacy'])->name('privacy');

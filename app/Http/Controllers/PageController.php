@@ -65,4 +65,24 @@ class PageController extends Controller
     {
         return view('pages.panther-build');
     }
+
+    public function certifications()
+    {
+        return view('pages.certifications');
+    }
+
+    public function sustainability()
+    {
+        return view('pages.sustainability');
+    }
+
+    public function careers()
+    {
+        return view('pages.careers');
+    }
+
+    public function privacy()
+    {
+        return view('pages.privacy');
+    }
 }
