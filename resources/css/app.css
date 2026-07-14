@@ -15,7 +15,7 @@
     --color-corporate-accent: #e0ab10;
     --color-brand-red: #cc1f26;
 
-    /* Enviro.ao Theme */
+    /* Enviro.AO Theme */
     --color-enviro-primary: #3b6b35;
     --color-enviro-secondary: #538c4c;
     --color-enviro-accent: #a8d5a2;
@@ -157,7 +157,6 @@ html {
     font-family: var(--font-primary);
     font-size: 0.75rem;
     font-weight: 800;
-    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #dd5209;
     /* default accent */
@@ -311,7 +310,6 @@ html {
     transition: all 0.2s;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
     border: none;
 }
 

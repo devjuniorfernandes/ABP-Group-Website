@@ -95,16 +95,10 @@
         </div>
     </section>
 
-    <!-- Map Section (Represented by a beautiful image map placeholder style) -->
+    <!-- Map Section -->
     <section class="section section-bg-gray" style="padding: 0;">
-        <div style="height: 400px; width: 100%; position: relative; background-color: #e2e8f0; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <!-- Simulating Map graphic with styled elements -->
-            <div style="position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #cbd5e1 25%, #94a3b8 100%); opacity: 0.7;"></div>
-            <div style="position: relative; z-index: 2; text-align: center; background-color: var(--color-white); padding: 32px; border-radius: var(--border-radius-md); box-: 0 10px 30px rgba(0,0,0,0.1); max-width: 400px;">
-                <h4 style="color: var(--color-primary-corporate); margin-bottom: 8px;">Centro Logístico Talatona</h4>
-                <p style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px;">Armazém D07, Belas - Talatona, Luanda</p>
-                <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px; background-color: var(--color-accent-corporate); color: var(--color-primary-corporate);">Ver no Google Maps</a>
-            </div>
+        <div style="width: 100%; overflow: hidden; display: flex;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4444.651696821937!2d13.203838375017392!3d-8.909566391147063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f51cf97bec1b%3A0xbbcbdf5d2892578b!2sAngola%20Black%20Panther%20-%20Group!5e1!3m2!1spt-PT!2sao!4v1784037333168!5m2!1spt-PT!2sao" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
     </section>
 </x-layouts.app>

@@ -10,6 +10,7 @@
 @php
     $heightClass =
         [
+            'screen' => 'min-h-screen',
             'tall' => 'min-h-[80vh] md:min-h-[85vh]',
             'medium' => 'min-h-[55vh] md:min-h-[60vh]',
             'short' => 'min-h-[35vh] md:min-h-[40vh]',
@@ -56,7 +57,7 @@
                         {{ strtoupper($theme) }}
                     </span>
                 @endif
-                <h1 class="font-primary text-4xl md:text-5xl lg:text-6.5xl font-extrabold mb-6">
+                <h1 class="font-primary text-4xl md:text-5xl lg:text-6.5xl font-extrabold mb-6 leading-normal">
                     {{ $title }}
                 </h1>
                 @if ($subtitle)

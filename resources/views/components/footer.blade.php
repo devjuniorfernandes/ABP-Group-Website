@@ -3,7 +3,8 @@
         <!-- Logo and Short Description -->
         <div class="lg:col-span-1 flex flex-col gap-4">
             <a href="{{ route('home') }}" class="flex items-center text-current">
-                <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group" class="h-10 w-auto object-contain">
+                <img src="{{ asset('images/logos/groupabp_white.png') }}" alt="ABP Group"
+                    class="h-10 w-auto object-contain">
             </a>
             <p class="text-[11px] text-gray-400 leading-relaxed mt-2">
                 O ABP Group é um grupo empresarial angolano que actua em sectores estratégicos, oferecendo soluções
@@ -41,7 +42,7 @@
                         class="hover:text-[#E41618]  transition-colors">PantherBUILD</a></li>
                 <li><a href="{{ route('panther-oil') }}" class="hover:text-[#E41618]  transition-colors">PantherOIL</a>
                 </li>
-                <li><a href="{{ route('enviro') }}" class="hover:text-[#E41618]  transition-colors">Enviro.ao</a>
+                <li><a href="{{ route('enviro') }}" class="hover:text-[#E41618]  transition-colors">Enviro.AO</a>
                 </li>
             </ul>
         </div>
@@ -56,8 +57,6 @@
                 </li>
                 <li><a href="{{ route('news') }}" class="hover:text-[#E41618]  transition-colors">Notícias e
                         eventos</a></li>
-                <li><a href="{{ route('contact') }}#partners"
-                        class="hover:text-[#E41618]  transition-colors">Parceiros</a></li>
                 <li><a href="{{ route('contact') }}#privacy" class="hover:text-[#E41618]  transition-colors">Política
                         de
                         Privacidade</a></li>

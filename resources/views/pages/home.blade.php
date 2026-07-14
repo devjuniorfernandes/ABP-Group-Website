@@ -5,7 +5,7 @@
     <x-hero title="Soluções Integradas para os Sectores de Energia, Petróleo e Infraestruturas"
         subtitle="Prestamos serviços especializados com elevados padrões de segurança, qualidade e eficiência, contribuindo."
         bgImage="{{ asset('images/home-hero-new.png') }}" bgVideo="{{ asset('hero_video.mp4') }}" theme="corporate"
-        height="tall" />
+        height="screen" />
 
     <!-- Stats Bar (Underneath the Hero) -->
     <section class="bg-[#334494] text-white py-12 relative z-20">
@@ -150,16 +150,6 @@
                         <!-- Connector -->
                         <div class="w-0.5 h-6 bg-white/20"></div>
 
-                        <!-- PantherOIL -->
-                        <a href="{{ route('panther-oil') }}"
-                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
-                            <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL"
-                                class="h-7 w-auto object-contain">
-                        </a>
-
-                        <!-- Connector -->
-                        <div class="w-0.5 h-6 bg-white/20"></div>
-
                         <!-- PantherMAT -->
                         <a href="{{ route('panther-mat') }}"
                             class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
@@ -170,10 +160,20 @@
                         <!-- Connector -->
                         <div class="w-0.5 h-6 bg-white/20"></div>
 
+                        <!-- PantherOIL -->
+                        <a href="{{ route('panther-oil') }}"
+                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
+                            <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL"
+                                class="h-7 w-auto object-contain">
+                        </a>
+
+                        <!-- Connector -->
+                        <div class="w-0.5 h-6 bg-white/20"></div>
+
                         <!-- Bottom Node -->
                         <a href="{{ route('enviro') }}"
                             class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
-                            <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.ao"
+                            <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.AO"
                                 class="h-7 w-auto object-contain">
                         </a>
                     </div>
@@ -202,17 +202,17 @@
                                     class="h-7 w-auto object-contain">
                             </a>
 
-                            <!-- PantherOIL -->
-                            <a href="{{ route('panther-oil') }}"
-                                class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 ">
-                                <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL"
-                                    class="h-7 w-auto object-contain">
-                            </a>
-
                             <!-- PantherMAT -->
                             <a href="{{ route('panther-mat') }}"
                                 class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 ">
                                 <img src="{{ asset('images/logos/panthermatabp_.png') }}" alt="PantherMAT"
+                                    class="h-7 w-auto object-contain">
+                            </a>
+
+                            <!-- PantherOIL -->
+                            <a href="{{ route('panther-oil') }}"
+                                class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 ">
+                                <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL"
                                     class="h-7 w-auto object-contain">
                             </a>
                         </div>
@@ -223,7 +223,7 @@
                         <!-- Bottom Node -->
                         <a href="{{ route('enviro') }}"
                             class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[170px] h-[70px] shrink-0 transition-all duration-300 hover:scale-105 ">
-                            <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.ao"
+                            <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.AO"
                                 class="h-7 w-auto object-contain">
                         </a>
                     </div>

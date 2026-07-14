@@ -3,8 +3,8 @@
 <header class="main-header fixed top-0 left-0 w-full h-20 text-white z-50 transition-all duration-300 flex items-center">
     <div class="container mx-auto px-6 flex justify-between items-center h-full max-w-[1200px]">
         <!-- Logo -->
-        <a href="{{ $logoUrl ?? route('home') }}" class="flex items-center text-current">
-            <img src="{{ asset($logo) }}" alt="ABP Group" class="h-10 w-auto object-contain">
+        <a href="{{ $logoUrl ?? route('home') }}" class="flex items-center justify-center bg-white h-full px-6">
+            <img src="{{ asset($logo) }}" alt="ABP Group" class="h-12 w-auto object-contain">
         </a>
 
         <!-- Desktop Navigation -->
@@ -42,7 +42,7 @@
                                 class="block px-6 py-2.5 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-corporate-primary transition-colors">PantherOIL</a>
                         </li>
                         <li><a href="{{ route('enviro') }}"
-                                class="block px-6 py-2.5 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-corporate-primary transition-colors">Enviro.ao</a>
+                                class="block px-6 py-2.5 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-corporate-primary transition-colors">Enviro.AO</a>
                         </li>
                     </ul>
                 </li>
@@ -104,7 +104,7 @@
                     class="font-primary text-base font-semibold text-corporate-primary block hover:text-corporate-accent pl-5 transition-colors">PantherOIL</a>
             </li>
             <li><a href="{{ route('enviro') }}"
-                    class="font-primary text-base font-semibold text-corporate-primary block hover:text-corporate-accent pl-5 transition-colors">Enviro.ao</a>
+                    class="font-primary text-base font-semibold text-corporate-primary block hover:text-corporate-accent pl-5 transition-colors">Enviro.AO</a>
             </li>
             <li
                 class="text-xs font-extrabold text-gray-400 uppercase tracking-widest mt-4 border-b border-gray-100 pb-1.5">
