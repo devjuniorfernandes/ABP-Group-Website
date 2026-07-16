@@ -9,7 +9,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40"></div>
         </div>
         <div class="relative z-10 container mx-auto px-6 max-w-[1200px]">
-            <h1 class="font-primary text-5xl md:text-7xl font-extrabold text-white">About Us</h1>
+            <h1 class="font-primary text-5xl md:text-7xl font-extrabold text-white">{{ $contents['hero_title'] ?? 'About Us' }}</h1>
         </div>
     </div>
 
@@ -22,9 +22,7 @@
                 <span class="text-[#3b4b8a]">e o </span><span class="text-[#cc1f26]">desenvolvimento sustentável</span>
             </h2>
             <p class="font-secondary text-xl text-gray-800 leading-relaxed font-medium">
-                O ABP Group é um grupo empresarial angolano que actua em sectores estratégicos da economia, oferecendo
-                soluções especializadas nas áreas de energia, engenharia, construção, gestão de infraestruturas, saúde e
-                sustentabilidade.
+                {{ $contents['hero_subtitle'] ?? 'O ABP Group é um grupo empresarial angolano que actua em sectores estratégicos da economia, oferecendo soluções especializadas nas áreas de energia, engenharia, construção, gestão de infraestruturas, saúde e sustentabilidade.' }}
             </p>
         </div>
     </section>
@@ -79,9 +77,7 @@
                         class="font-primary text-xl font-bold mb-6 text-[#1a2c42] group-hover:text-white uppercase tracking-wide">
                         Visão</h3>
                     <p class="font-secondary text-base leading-relaxed text-gray-700 group-hover:text-white/90">
-                        Ser um grupo empresarial de referência nos sectores em que actuamos, reconhecido pela inovação,
-                        competência técnica e capacidade de gerar impacto positivo e duradouro nos mercados onde estamos
-                        presentes.
+                        {{ $contents['vision_text'] ?? 'Ser um grupo empresarial de referência nos sectores em que actuamos, reconhecido pela inovação, competência técnica e capacidade de gerar impacto positivo e duradouro nos mercados onde estamos presentes.' }}
                     </p>
                 </div>
 

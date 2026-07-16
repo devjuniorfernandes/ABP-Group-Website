@@ -190,11 +190,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const sustainabilitySection = document.querySelector('.sustainability-section');
     const sustainabilityBg = document.querySelector('.sustainability-bg');
     if (sustainabilitySection && sustainabilityBg) {
+        let sectionTop = sustainabilitySection.offsetTop;
+        let sectionHeight = sustainabilitySection.offsetHeight;
+        let windowHeight = window.innerHeight;
+
+        const updateDimensions = () => {
+            sectionTop = sustainabilitySection.offsetTop;
+            sectionHeight = sustainabilitySection.offsetHeight;
+            windowHeight = window.innerHeight;
+        };
+
+        window.addEventListener('resize', updateDimensions);
+        window.addEventListener('orientationchange', updateDimensions);
+
+        setTimeout(updateDimensions, 100);
+
+        let ticking = false;
+
+        function onSustainabilityScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    if (scrollY >= sectionTop - windowHeight && scrollY <= sectionTop + sectionHeight) {
+                        const distance = scrollY - (sectionTop - windowHeight);
+                        const speed = 0.12;
+                        const translateY = distance * speed;
+                        sustainabilityBg.style.transform = `translate3d(0, ${translateY}px, 0) scale(1.25)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     window.addEventListener('scroll', onSustainabilityScroll, { passive: true });
-                    onSustainabilityScroll(); // initial update
+                    updateDimensions();
+                    onSustainabilityScroll();
                 } else {
                     window.removeEventListener('scroll', onSustainabilityScroll);
                 }
@@ -202,19 +236,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0 });
 
         observer.observe(sustainabilitySection);
-
-        function onSustainabilityScroll() {
-            const scrollY = window.scrollY;
-            const rect = sustainabilitySection.getBoundingClientRect();
-            const sectionTop = rect.top + scrollY;
-            const windowHeight = window.innerHeight;
-
-            // Calculate translation based on viewport position
-            if (scrollY >= sectionTop - windowHeight && scrollY <= sectionTop + rect.height) {
-                const distance = scrollY - (sectionTop - windowHeight);
-                const speed = 0.08; // translation speed factor
-                sustainabilityBg.style.transform = `translate3d(0, ${distance * speed}px, 0) scale(1.15)`;
-            }
-        }
     }
 });

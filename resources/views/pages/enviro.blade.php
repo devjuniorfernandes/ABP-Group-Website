@@ -13,9 +13,7 @@
         <div class="relative z-10 container mx-auto px-6 max-w-[1200px] mt-12">
             <h1
                 class="font-primary text-5xl md:text-6xl lg:text-[75px] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">
-                Lorem ipsum dolor sit <br>
-                amet <span class="text-[#99c24d]">consectetur</span> <br>
-                <span class="text-[#99c24d]">adipiscing</span>
+                {{ $contents['hero_title'] ?? 'Enviro.AO' }}
             </h1>
         </div>
     </div>
@@ -30,18 +28,7 @@
             </h2>
             <div class="font-secondary text-lg md:text-xl text-gray-800 leading-relaxed max-w-[1100px] font-medium">
                 <p class="mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.
+                    {{ $contents['description'] ?? 'A Enviro.AO ajuda marcas líderes e indústrias nacionais a gerir a sua pegada ecológica através de auditorias e processos certificados de mitigação. Oferecemos consultoria ambiental completa para licenciamento, estudos de impacto e gestão integrada de resíduos.' }}
                 </p>
             </div>
         </div>

@@ -4,12 +4,12 @@
     <!-- Hero Banner -->
     <div class="relative w-full h-[300px] flex items-end pb-10 bg-[#1a2c42]">
         <div class="absolute inset-0 w-full h-full">
-            <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            <img src="{{ isset($contents['hero_image']) ? asset('storage/' . $contents['hero_image']) : 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80' }}"
                 alt="PantherMat Background" class="w-full h-full object-cover opacity-60" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#1a2c42] to-transparent"></div>
         </div>
         <div class="relative z-10 container mx-auto px-6 max-w-[1200px]">
-            <h1 class="font-primary text-5xl md:text-6xl font-extrabold text-white">PantherMat</h1>
+            <h1 class="font-primary text-5xl md:text-6xl font-extrabold text-white">{{ $contents['hero_title'] ?? 'PantherMat' }}</h1>
         </div>
     </div>
 
@@ -26,8 +26,7 @@
                 </div>
                 <div class="flex flex-col justify-center space-y-6">
                     <p class="font-secondary text-lg text-gray-700 leading-relaxed font-semibold">
-                        A PantherMAT assegura que as suas instalações funcionem com total eficiência e segurança.
-                        Oferecemos serviços integrados de gestão predial (Facility Management).
+                        {{ $contents['description'] ?? 'A PantherMAT assegura que as suas instalações funcionem com total eficiência e segurança. Oferecemos serviços integrados de gestão predial (Facility Management).' }}
                     </p>
                     <p class="font-secondary text-base text-gray-600 leading-relaxed">
                         A nossa equipa técnica de engenheiros e mecânicos credenciados assegura que equipamentos

@@ -91,8 +91,7 @@
                                 d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM12 11.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                         </svg>
                     </span>
-                    <span class="leading-relaxed">Centro Logístico de Talatona Armazém D07, Belas – Talatona
-                        Angola</span>
+                    <span class="leading-relaxed">{{ $siteSettings['office_address'] ?? 'Centro Logístico de Talatona Armazém D07, Belas – Talatona, Luanda, Angola' }}</span>
                 </li>
                 <li class="flex items-center gap-2.5">
                     <span class="shrink-0">
@@ -102,8 +101,11 @@
                                 d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                         </svg>
                     </span>
-                    <a href="tel:+244929414778" class="hover:text-[#E41618] transition-colors font-semibold">+244
-                        929 414 778</a>
+                    @php 
+                        $phoneRaw = $siteSettings['contact_phone'] ?? '+244 929 414 778';
+                        $phoneClean = preg_replace('/[^0-9+]/', '', $phoneRaw);
+                    @endphp
+                    <a href="tel:{{ $phoneClean }}" class="hover:text-[#E41618] transition-colors font-semibold">{{ $phoneRaw }}</a>
                 </li>
                 <li class="flex items-center gap-2.5">
                     <span class="shrink-0">
@@ -113,8 +115,8 @@
                                 d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6" />
                         </svg>
                     </span>
-                    <a href="mailto:geral@abp.co.ao"
-                        class="hover:text-[#E41618] transition-colors">geral@abp.co.ao</a>
+                    <a href="mailto:{{ $siteSettings['contact_email'] ?? 'geral@abp.co.ao' }}"
+                        class="hover:text-[#E41618] transition-colors">{{ $siteSettings['contact_email'] ?? 'geral@abp.co.ao' }}</a>
                 </li>
             </ul>
         </div>

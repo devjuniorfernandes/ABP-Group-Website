@@ -4,12 +4,12 @@
     <!-- Hero Banner -->
     <div class="relative w-full h-[300px] flex items-center justify-center bg-[#061127]">
         <div class="absolute inset-0 w-full h-full">
-            <img src="https://images.unsplash.com/photo-1605389601633-911e3b5e43a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            <img src="{{ isset($contents['hero_image']) ? asset('storage/' . $contents['hero_image']) : 'https://images.unsplash.com/photo-1605389601633-911e3b5e43a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80' }}"
                 alt="PantherOil Background" class="w-full h-full object-cover opacity-60" />
             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#061127]/80"></div>
         </div>
         <div class="relative z-10 container mx-auto px-6 max-w-[1200px]">
-            <h1 class="font-primary text-4xl md:text-5xl font-extrabold text-white mt-12">PantherOil</h1>
+            <h1 class="font-primary text-4xl md:text-5xl font-extrabold text-white mt-12">{{ $contents['hero_title'] ?? 'PantherOil' }}</h1>
         </div>
     </div>
 
@@ -30,9 +30,7 @@
                             Fornecemos suporte técnico <br class="hidden lg:block" /> operacional e logístico
                         </h2>
                         <p class="font-secondary text-base text-white/90 leading-relaxed mb-4">
-                            A PantherOIL é a unidade especializada em petróleo, gás e suporte energético do ABP Group.
-                            Fornecemos soluções completas na cadeia de abastecimento técnico, válvulas industriais e
-                            equipamentos mecânicos para bases petrolíferas críticas no Soyo, Cabinda e Luanda.
+                            {{ $contents['description'] ?? 'A PantherOIL é a unidade especializada em petróleo, gás e suporte energético do ABP Group. Fornecemos soluções completas na cadeia de abastecimento técnico, válvulas industriais e equipamentos mecânicos para bases petrolíferas críticas no Soyo, Cabinda e Luanda.' }}
                         </p>
                         <p class="font-secondary text-base text-white/90 leading-relaxed">
                             Com rigorosos padrões de saúde, segurança e ambiente (HSE), garantimos fornecimentos em

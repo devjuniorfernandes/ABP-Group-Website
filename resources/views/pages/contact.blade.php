@@ -3,15 +3,15 @@
 
     <!-- Hero Banner -->
     <x-hero 
-        title=""
-        subtitle=""
+        title="{{ $contents['hero_title'] ?? 'Contacte-nos' }}"
+        subtitle="{{ $contents['hero_subtitle'] ?? 'Tem alguma dúvida ou proposta de parceria? Fale connosco através de um dos nossos canais de comunicação corporativos.' }}"
         bgImage="{{ asset('images/corporate-hero.png') }}"
         theme="corporate"
         height="ultra-short"
     />
 
     <!-- Contact Grid Section -->
-    <section class="section">
+    <section class="section text-left">
         <div class="container">
             <div class="contact-grid">
                 <!-- Info Panel -->
@@ -27,25 +27,29 @@
                                 <span class="contact-icon" style="color: var(--color-accent-corporate);">
                                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM12 11.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                 </span>
-                                <span class="contact-text" style="font-size: 15px; opacity: 0.9;">Centro Logístico de Talatona Armazém D07, Belas – Talatona, Luanda, Angola</span>
+                                <span class="contact-text" style="font-size: 15px; opacity: 0.9;">{{ $siteSettings['office_address'] ?? 'Centro Logístico de Talatona Armazém D07, Belas – Talatona, Luanda, Angola' }}</span>
                             </li>
                             <li class="contact-item">
                                 <span class="contact-icon" style="color: var(--color-accent-corporate);">
                                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                                 </span>
-                                <a href="tel:+244929414778" class="contact-text link" style="font-size: 15px; opacity: 0.9;">+244 929 414 778</a>
+                                @php 
+                                    $phoneRaw = $siteSettings['contact_phone'] ?? '+244 929 414 778';
+                                    $phoneClean = preg_replace('/[^0-9+]/', '', $phoneRaw);
+                                @endphp
+                                <a href="tel:{{ $phoneClean }}" class="contact-text link" style="font-size: 15px; opacity: 0.9;">{{ $phoneRaw }}</a>
                             </li>
                             <li class="contact-item">
                                 <span class="contact-icon" style="color: var(--color-accent-corporate);">
                                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6"/></svg>
                                 </span>
-                                <a href="mailto:geral@abp.co.ao" class="contact-text link" style="font-size: 15px; opacity: 0.9;">geral@abp.co.ao</a>
+                                <a href="mailto:{{ $siteSettings['contact_email'] ?? 'geral@abp.co.ao' }}" class="contact-text link" style="font-size: 15px; opacity: 0.9;">{{ $siteSettings['contact_email'] ?? 'geral@abp.co.ao' }}</a>
                             </li>
                         </ul>
                     </div>
                     
                     <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; margin-top: 24px; font-size: 13px; opacity: 0.7;">
-                        <span>Horário de Atendimento:<br>Segunda a Sexta: 08h00 - 17h00</span>
+                        <span>Horário de Atendimento:<br>{{ $siteSettings['working_hours'] ?? 'Segunda a Sexta: 08h00 - 17h00' }}</span>
                     </div>
                 </div>
 
@@ -53,39 +57,64 @@
                 <div class="contact-form-panel">
                     <h3 style="font-size: 22px; color: var(--color-primary-corporate); margin-bottom: 24px; font-weight: 700;">Envie-nos uma Mensagem</h3>
                     
-                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! A nossa equipa entrará em contacto em breve.');">
+                    @if(session('success'))
+                        <div class="mb-6 p-4 bg-green-50 border-l-4 border-green-500 text-green-700 text-sm font-medium">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    <form action="{{ route('contact.store') }}" method="POST">
+                        @csrf
                         <div class="grid-2" style="gap: 20px; margin-bottom: 20px;">
                             <div class="form-group" style="margin-bottom: 0;">
                                 <label for="name" class="form-label">Nome Completo *</label>
-                                <input type="text" id="name" class="form-control" placeholder="ex: João Silva" required>
+                                <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}" placeholder="ex: João Silva" required>
+                                @error('name')
+                                    <span class="text-red-500 text-xs mt-1 block font-medium">{{ $message }}</span>
+                                @enderror
                             </div>
                             
                             <div class="form-group" style="margin-bottom: 0;">
                                 <label for="email" class="form-label">E-mail *</label>
-                                <input type="email" id="email" class="form-control" placeholder="ex: joao@empresa.co.ao" required>
+                                <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="ex: joao@empresa.co.ao" required>
+                                @error('email')
+                                    <span class="text-red-500 text-xs mt-1 block font-medium">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="grid-2" style="gap: 20px; margin-bottom: 20px;">
                             <div class="form-group" style="margin-bottom: 0;">
                                 <label for="phone" class="form-label">Contacto Telefónico</label>
-                                <input type="tel" id="phone" class="form-control" placeholder="ex: +244 912 345 678">
+                                <input type="tel" id="phone" name="phone" class="form-control" value="{{ old('phone') }}" placeholder="ex: +244 912 345 678">
+                                @error('phone')
+                                    <span class="text-red-500 text-xs mt-1 block font-medium">{{ $message }}</span>
+                                @enderror
                             </div>
                             
                             <div class="form-group" style="margin-bottom: 0;">
                                 <label for="company" class="form-label">Empresa</label>
-                                <input type="text" id="company" class="form-control" placeholder="Nome da sua organização">
+                                <input type="text" id="company" name="company" class="form-control" value="{{ old('company') }}" placeholder="Nome da sua organização">
+                                @error('company')
+                                    <span class="text-red-500 text-xs mt-1 block font-medium">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 20px;">
                             <label for="subject" class="form-label">Assunto *</label>
-                            <input type="text" id="subject" class="form-control" placeholder="ex: Proposta de Parceria" required>
+                            <input type="text" id="subject" name="subject" class="form-control" value="{{ old('subject') }}" placeholder="ex: Proposta de Parceria" required>
+                            @error('subject')
+                                <span class="text-red-500 text-xs mt-1 block font-medium">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group" style="margin-bottom: 30px;">
                             <label for="message" class="form-label">Mensagem *</label>
-                            <textarea id="message" rows="5" class="form-control" placeholder="Descreva de forma detalhada o seu pedido..." style="resize: vertical;" required></textarea>
+                            <textarea id="message" name="message" rows="5" class="form-control" placeholder="Descreva de forma detalhada o seu pedido..." style="resize: vertical;" required>{{ old('message') }}</textarea>
+                            @error('message')
+                                <span class="text-red-500 text-xs mt-1 block font-medium">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 16px; padding: 16px; background-color: var(--color-primary-corporate); color: var(--color-white);">Enviar Mensagem</button>

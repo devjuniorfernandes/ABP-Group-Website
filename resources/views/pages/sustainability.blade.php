@@ -2,8 +2,8 @@
     <x-slot name="title">Sustentabilidade | ABP Group - Construindo um Futuro Verde</x-slot>
 
     <!-- Hero Banner -->
-    <x-hero title="Sustentabilidade (ESG)"
-        subtitle="Acreditamos num desenvolvimento económico que respeita o ambiente e promove o bem-estar social."
+    <x-hero title="{{ $contents['hero_title'] ?? 'Sustentabilidade (ESG)' }}"
+        subtitle="{{ $contents['hero_subtitle'] ?? 'Acreditamos num desenvolvimento económico que respeita o ambiente e promove o bem-estar social.' }}"
         bgImage="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
         theme="corporate" height="short" />
 
@@ -15,9 +15,7 @@
             </h2>
             <div class="prose max-w-none font-secondary text-lg text-gray-800 leading-relaxed mb-12">
                 <p class="mb-6">
-                    A sustentabilidade está no centro da estratégia de longo prazo do ABP Group. Adoptámos os princípios 
-                    Ambientais, Sociais e de Governança (ESG) em todos os nossos projectos, assegurando que as nossas 
-                    actividades contribuem positivamente para as comunidades e minimizam o impacto ambiental.
+                    {{ $contents['esg_text'] ?? 'A sustentabilidade está no centro da estratégia de longo prazo do ABP Group. Adoptámos os princípios Ambientais, Sociais e de Governança (ESG) em todos os nossos projectos, assegurando que as nossas actividades contribuem positivamente para as comunidades e minimizam o impacto ambiental.' }}
                 </p>
                 <p>
                     Desde a concepção de infraestruturas até à implementação de tecnologias de energias renováveis através 

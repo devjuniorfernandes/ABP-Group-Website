@@ -4,12 +4,12 @@
     <!-- Hero Banner -->
     <div class="relative w-full h-[300px] flex items-end pb-10 bg-[#0d1e3d]">
         <div class="absolute inset-0 w-full h-full">
-            <img src="https://www.betar.pt/cms/wp-content/uploads/2021/12/Sky_Geral_0_TD-1.jpg"
+            <img src="{{ isset($contents['hero_image']) ? asset('storage/' . $contents['hero_image']) : 'https://www.betar.pt/cms/wp-content/uploads/2021/12/Sky_Geral_0_TD-1.jpg' }}"
                 alt="PantherBuild Background" class="w-full h-full object-cover opacity-80" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40"></div>
         </div>
         <div class="relative z-10 container mx-auto px-6 max-w-[1200px]">
-            <h1 class="font-primary text-5xl md:text-7xl font-extrabold text-white">PantherBuild</h1>
+            <h1 class="font-primary text-5xl md:text-7xl font-extrabold text-white">{{ $contents['hero_title'] ?? 'PantherBuild' }}</h1>
         </div>
     </div>
 
@@ -25,9 +25,7 @@
                 </div>
                 <div class="pt-2">
                     <p class="font-secondary text-xl text-gray-800 leading-relaxed font-medium mb-8">
-                        A PantherBUILD é o braço de construção civil e engenharia do ABP Group. Construímos com foco em
-                        segurança, prazos rigorosos e sustentabilidade estrutural. Desde armazéns de grande vão livre a
-                        edifícios comerciais complexos e infraestruturas urbanas de vias de comunicação.
+                        {{ $contents['description'] ?? 'A PantherBUILD é o braço de construção civil e engenharia do ABP Group. Construímos com foco em segurança, prazos rigorosos e sustentabilidade estrutural. Desde armazéns de grande vão livre a edifícios comerciais complexos e infraestruturas urbanas de vias de comunicação.' }}
                     </p>
                     <p class="font-secondary text-xl text-gray-800 leading-relaxed font-medium">
                         A nossa equipa de engenheiros civis e fiscais de obra alia metodologias construtivas modernas de

@@ -2,8 +2,8 @@
     <x-slot name="title">Certificações | ABP Group - Compromisso e Qualidade</x-slot>
 
     <!-- Hero Banner -->
-    <x-hero title="Certificações"
-        subtitle="O nosso compromisso com os mais altos padrões de qualidade, segurança e excelência."
+    <x-hero title="{{ $contents['hero_title'] ?? 'Certificações' }}"
+        subtitle="{{ $contents['hero_subtitle'] ?? 'O nosso compromisso com os mais altos padrões de qualidade, segurança e excelência.' }}"
         bgImage="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
         theme="corporate" height="short" />
 
@@ -15,9 +15,7 @@
             </h2>
             <div class="prose max-w-none font-secondary text-lg text-gray-800 leading-relaxed mb-8">
                 <p class="mb-6">
-                    No ABP Group, a qualidade não é apenas um objetivo, mas um pilar fundamental da nossa actuação. 
-                    Trabalhamos continuamente para assegurar que todas as nossas operações cumprem as mais rigorosas 
-                    normas internacionais de qualidade, segurança no trabalho e protecção ambiental.
+                    {{ $contents['intro_text'] ?? 'No ABP Group, a qualidade não é apenas um objetivo, mas um pilar fundamental da nossa actuação. Trabalhamos continuamente para assegurar que todas as nossas operações cumprem as mais rigorosas normas internacionais de qualidade, segurança no trabalho e protecção ambiental.' }}
                 </p>
                 <p class="mb-6">
                     A nossa dedicação à excelência é reconhecida pelas principais entidades certificadoras. 
