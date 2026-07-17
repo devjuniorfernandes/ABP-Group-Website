@@ -109,7 +109,7 @@
 
                 <!-- Flowchart Diagram Box with styled logos inside nodes -->
                 <div
-                    class="w-full rounded-2xl p-4 md:p-8 flex flex-col items-center justify-center relative overflow-hidden">
+                    class="w-full rounded-2xl flex flex-col items-center justify-center relative">
                     <!-- Right background shape nested and centered -->
                     <div
                         class="parallax-layer-right absolute left-1/2 top-1/2 -mt-[100px] -ml-[100px] md:-mt-[150px] md:-ml-[150px] w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-white/10 border border-white/15 rounded-full pointer-events-none flex items-center justify-center -z-10">
@@ -117,102 +117,107 @@
                     </div>
 
                     <!-- Mobile Layout: Clean vertical stack -->
+                    <!-- Mobile Layout: Clean vertical stack -->
                     <div class="flex md:hidden flex-col items-center w-full">
                         <!-- Top Node -->
                         <a href="{{ route('home') }}"
-                            class="bg-white rounded-xl p-3  z-10 w-[150px] h-[60px] text-center flex items-center justify-center transition-all duration-300 hover:scale-105 ">
+                            class="bg-white rounded-2xl p-3 z-10 w-[180px] h-[65px] text-center flex items-center justify-center transition-all duration-300 hover:scale-105 shrink-0 shadow-sm">
                             <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group"
-                                class="h-8 w-auto object-contain">
+                                class="h-7 w-auto max-w-full object-contain">
                         </a>
 
                         <!-- Connector -->
-                        <div class="w-0.5 h-6 bg-white/20"></div>
+                        <div class="w-0 h-6 border-l-2 border-dashed border-white/40"></div>
 
                         <!-- PantherBUILD -->
                         <a href="{{ route('panther-build') }}"
-                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
+                            class="bg-white rounded-2xl p-3 text-center z-10 flex items-center justify-center w-[180px] h-[65px] transition-all duration-300 hover:scale-105 shrink-0 shadow-sm">
                             <img src="{{ asset('images/logos/abp_panthrtbuildabp_.png') }}" alt="PantherBUILD"
-                                class="h-7 w-auto object-contain">
+                                class="h-7 w-auto max-w-full object-contain">
                         </a>
 
                         <!-- Connector -->
-                        <div class="w-0.5 h-6 bg-white/20"></div>
+                        <div class="w-0 h-6 border-l-2 border-dashed border-white/40"></div>
 
                         <!-- PantherMAT -->
                         <a href="{{ route('panther-mat') }}"
-                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
+                            class="bg-white rounded-2xl p-3 text-center z-10 flex items-center justify-center w-[180px] h-[65px] transition-all duration-300 hover:scale-105 shrink-0 shadow-sm">
                             <img src="{{ asset('images/logos/panthermatabp_.png') }}" alt="PantherMAT"
-                                class="h-7 w-auto object-contain">
+                                class="h-7 w-auto max-w-full object-contain">
                         </a>
 
                         <!-- Connector -->
-                        <div class="w-0.5 h-6 bg-white/20"></div>
+                        <div class="w-0 h-6 border-l-2 border-dashed border-white/40"></div>
 
                         <!-- PantherOIL -->
                         <a href="{{ route('panther-oil') }}"
-                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
+                            class="bg-white rounded-2xl p-3 text-center z-10 flex items-center justify-center w-[180px] h-[65px] transition-all duration-300 hover:scale-105 shrink-0 shadow-sm">
                             <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL"
-                                class="h-7 w-auto object-contain">
+                                class="h-7 w-auto max-w-full object-contain">
                         </a>
 
                         <!-- Connector -->
-                        <div class="w-0.5 h-6 bg-white/20"></div>
+                        <div class="w-0 h-6 border-l-2 border-dashed border-white/40"></div>
 
                         <!-- Bottom Node -->
                         <a href="{{ route('enviro') }}"
-                            class="bg-white rounded-xl p-3  text-center z-10 flex items-center justify-center w-[150px] h-[60px] transition-all duration-300 hover:scale-105 ">
+                            class="bg-white rounded-2xl p-3 text-center z-10 flex items-center justify-center w-[180px] h-[65px] transition-all duration-300 hover:scale-105 shrink-0 shadow-sm">
                             <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.AO"
-                                class="h-7 w-auto object-contain">
+                                class="h-7 w-auto max-w-full object-contain">
                         </a>
                     </div>
 
                     <!-- Desktop Layout: Flowchart diagram -->
-                    <div class="hidden md:flex flex-col items-center w-full">
-                        <!-- Top Node -->
-                        <a href="{{ route('home') }}"
-                            class="bg-white rounded-xl p-3 z-10 w-[150px] md:w-[160px] lg:w-[135px] xl:w-[170px] h-[60px] md:h-[65px] lg:h-[60px] xl:h-[70px] text-center flex items-center justify-center transition-all duration-300 hover:scale-105">
-                            <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group"
-                                class="h-7 md:h-8 lg:h-7 xl:h-9 w-auto object-contain">
+                    <div class="hidden md:block relative w-[660px] h-[380px] shrink-0 origin-center scale-75 lg:scale-70 xl:scale-85 2xl:scale-100 my-[-40px] xl:my-[-20px] 2xl:my-0">
+                        <!-- SVG Connector Lines -->
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 660 380" fill="none">
+                            <!-- Top left curved connector -->
+                            <path d="M 230 40 H 130 A 30 30 0 0 0 100 70 V 150" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            <!-- Top right curved connector -->
+                            <path d="M 430 40 H 530 A 30 30 0 0 1 560 70 V 150" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            <!-- Top middle straight connector -->
+                            <path d="M 330 80 V 150" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            
+                            <!-- Middle horizontal connectors -->
+                            <path d="M 200 190 H 230" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            <path d="M 430 190 H 460" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            
+                            <!-- Bottom left curved connector -->
+                            <path d="M 100 230 V 310 A 30 30 0 0 0 130 340 H 230" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            <!-- Bottom middle straight connector -->
+                            <path d="M 330 230 V 300" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            <!-- Bottom right curved connector -->
+                            <path d="M 560 230 V 310 A 30 30 0 0 1 530 340 H 430" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                        </svg>
+
+                        <!-- Top Card -->
+                        <a href="{{ route('home') }}" style="left: 230px; top: 0px; width: 200px; height: 80px;" 
+                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group" class="h-8 w-auto max-w-full object-contain">
                         </a>
 
-                        <!-- Connector -->
-                        <div class="w-0.5 h-8 bg-white/20"></div>
+                        <!-- PantherBUILD -->
+                        <a href="{{ route('panther-build') }}" style="left: 0px; top: 150px; width: 200px; height: 80px;" 
+                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/abp_panthrtbuildabp_.png') }}" alt="PantherBUILD" class="h-8 w-auto max-w-full object-contain">
+                        </a>
 
-                        <!-- Middle Row Nodes -->
-                        <div class="flex justify-between items-center w-full gap-2 md:gap-4 lg:gap-2 xl:gap-4 relative py-2">
-                            <!-- Horizontal connection line under nodes -->
-                            <div class="absolute top-1/2 left-0 w-full h-0.5 bg-white/20 -translate-y-1/2 -z-10"></div>
+                        <!-- PantherMAT -->
+                        <a href="{{ route('panther-mat') }}" style="left: 230px; top: 150px; width: 200px; height: 80px;" 
+                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/panthermatabp_.png') }}" alt="PantherMAT" class="h-8 w-auto max-w-full object-contain">
+                        </a>
 
-                            <!-- PantherBUILD -->
-                            <a href="{{ route('panther-build') }}"
-                                class="bg-white rounded-xl p-3 text-center z-10 flex items-center justify-center w-[150px] md:w-[160px] lg:w-[135px] xl:w-[170px] h-[60px] md:h-[65px] lg:h-[60px] xl:h-[70px] shrink-0 transition-all duration-300 hover:scale-105">
-                                <img src="{{ asset('images/logos/abp_panthrtbuildabp_.png') }}" alt="PantherBUILD"
-                                    class="h-6 md:h-7 lg:h-6 xl:h-7 w-auto object-contain">
-                            </a>
+                        <!-- PantherOIL -->
+                        <a href="{{ route('panther-oil') }}" style="left: 460px; top: 150px; width: 200px; height: 80px;" 
+                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL" class="h-8 w-auto max-w-full object-contain">
+                        </a>
 
-                            <!-- PantherMAT -->
-                            <a href="{{ route('panther-mat') }}"
-                                class="bg-white rounded-xl p-3 text-center z-10 flex items-center justify-center w-[150px] md:w-[160px] lg:w-[135px] xl:w-[170px] h-[60px] md:h-[65px] lg:h-[60px] xl:h-[70px] shrink-0 transition-all duration-300 hover:scale-105">
-                                <img src="{{ asset('images/logos/panthermatabp_.png') }}" alt="PantherMAT"
-                                    class="h-6 md:h-7 lg:h-6 xl:h-7 w-auto object-contain">
-                            </a>
-
-                            <!-- PantherOIL -->
-                            <a href="{{ route('panther-oil') }}"
-                                class="bg-white rounded-xl p-3 text-center z-10 flex items-center justify-center w-[150px] md:w-[160px] lg:w-[135px] xl:w-[170px] h-[60px] md:h-[65px] lg:h-[60px] xl:h-[70px] shrink-0 transition-all duration-300 hover:scale-105">
-                                <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL"
-                                    class="h-6 md:h-7 lg:h-6 xl:h-7 w-auto object-contain">
-                            </a>
-                        </div>
-
-                        <!-- Connector -->
-                        <div class="w-0.5 h-8 bg-white/20"></div>
-
-                        <!-- Bottom Node -->
-                        <a href="{{ route('enviro') }}"
-                            class="bg-white rounded-xl p-3 text-center z-10 flex items-center justify-center w-[150px] md:w-[160px] lg:w-[135px] xl:w-[170px] h-[60px] md:h-[65px] lg:h-[60px] xl:h-[70px] shrink-0 transition-all duration-300 hover:scale-105">
-                            <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.AO"
-                                class="h-6 md:h-7 lg:h-6 xl:h-7 w-auto object-contain">
+                        <!-- Enviro.AO -->
+                        <a href="{{ route('enviro') }}" style="left: 230px; top: 300px; width: 200px; height: 80px;" 
+                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.AO" class="h-8 w-auto max-w-full object-contain">
                         </a>
                     </div>
                 </div>
