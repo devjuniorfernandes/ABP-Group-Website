@@ -51,13 +51,13 @@ class AdminPageController extends Controller
         $values = $request->input('values', []);
 
         foreach ($contents as $item) {
-            if ($item->type === 'image') {
+            if ($item->type === 'image' || $item->type === 'video') {
                 if ($request->hasFile("images.{$item->id}")) {
-                    // Delete old image if it exists and is not a seeded asset
-                    if ($item->value && !str_starts_with($item->value, 'images/')) {
+                    // Delete old file if it exists and is not a seeded asset/remote url
+                    if ($item->value && !str_starts_with($item->value, 'images/') && !str_starts_with($item->value, 'http')) {
                         Storage::disk('public')->delete($item->value);
                     }
-                    // Store new image
+                    // Store new file
                     $path = $request->file("images.{$item->id}")->store('pages', 'public');
                     $item->update(['value' => $path]);
                 }

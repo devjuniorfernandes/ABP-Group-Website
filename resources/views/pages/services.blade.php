@@ -3,8 +3,7 @@
 
     <!-- Hero Banner -->
     <x-hero title="{{ $contents['hero_title'] ?? 'Serviços e Soluções Integradas' }}" 
-        subtitle="{{ $contents['hero_subtitle'] ?? 'Prestamos serviços especializados de engenharia civil, AVAC, manutenção mecânica, gestão de resíduos e consultoria ambiental em todo o território nacional.' }}" 
-        bgImage="{{ asset('images/corporate-hero.png') }}" theme="corporate"
+        bgImage="{{ isset($contents['hero_image']) ? (str_starts_with($contents['hero_image'], 'http') ? $contents['hero_image'] : (str_starts_with($contents['hero_image'], 'images/') ? asset($contents['hero_image']) : asset('storage/' . $contents['hero_image']))) : asset('images/corporate-hero.png') }}" theme="corporate"
         height="ultra-short" />
 
     <!-- Introduction Section -->

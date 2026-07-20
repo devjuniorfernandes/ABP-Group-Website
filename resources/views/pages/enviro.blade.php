@@ -1,18 +1,21 @@
-<x-layouts.app logo="images/logos/enviro_ao.png" logoUrl="{{ route('enviro') }}" :hideFooter="true">
+<x-layouts.app :hideFooter="true">
     <x-slot name="title">Enviro.AO | Consultoria e Engenharia Ambiental - ABP Group</x-slot>
 
     <!-- Hero Banner -->
-    <div class="relative w-full h-[80vh] min-h-[600px] flex items-center bg-black overflow-hidden mt-[-100px]">
-        <!-- Note: mt-[-100px] to go under transparent navbar if needed. Assuming standard header behavior. -->
-        <div class="absolute inset-0 w-full h-full z-0 pt-[100px]">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-70">
-                <source src="{{ asset('hero_video.mp4') }}" type="video/mp4">
-            </video>
+    <div class="relative w-full h-[250px] flex items-center bg-black overflow-hidden">
+        <div class="absolute inset-0 w-full h-full z-0">
+            @if(isset($contents['hero_image']))
+                <img src="{{ str_starts_with($contents['hero_image'], 'http') ? $contents['hero_image'] : (str_starts_with($contents['hero_image'], 'images/') ? asset($contents['hero_image']) : asset('storage/' . $contents['hero_image'])) }}" 
+                     alt="Enviro Hero" class="absolute inset-0 w-full h-full object-cover opacity-70" />
+            @else
+                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-70">
+                    <source src="{{ asset('hero_video.mp4') }}" type="video/mp4">
+                </video>
+            @endif
             <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
         </div>
-        <div class="relative z-10 container mx-auto px-6 max-w-[1200px] mt-12">
-            <h1
-                class="font-primary text-5xl md:text-6xl lg:text-[75px] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">
+        <div class="relative z-10 container mx-auto px-6 max-w-[1200px]">
+            <h1 class="font-primary text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
                 {{ $contents['hero_title'] ?? 'Enviro.AO' }}
             </h1>
         </div>
@@ -23,8 +26,7 @@
         <div class="container mx-auto px-6 max-w-[1200px]">
             <h2
                 class="font-primary text-5xl md:text-6xl lg:text-[65px] font-extrabold leading-[1.05] mb-10 tracking-tight">
-                <span class="text-[#3b6b35] block">Lorem ipsum dolor sit amet</span>
-                <span class="text-[#99c24d] block">consectetur adipiscing</span>
+                {!! $contents['intro_title'] ?? '<span class="text-[#3b6b35] block">Líderes em Engenharia e</span><span class="text-[#99c24d] block">Consultoria Ambiental em Angola</span>' !!}
             </h2>
             <div class="font-secondary text-lg md:text-xl text-gray-800 leading-relaxed max-w-[1100px] font-medium">
                 <p class="mb-4">
@@ -42,43 +44,36 @@
                 <div
                     class="group bg-[#F5F5F5] hover:bg-[#3B6B39] transition-colors duration-300 p-10 border border-[#99c24d]/30 flex flex-col h-full cursor-pointer">
                     <div class="w-16 h-16 mb-6 text-[#99c24d]">
-                        <!-- Icon 1: Ecology/People -->
                         <img src="{{ asset('images/svg/envaro_1.svg') }}" alt="Icon 1" class="w-full h-full">
-
                     </div>
-                    <h3 class="font-primary text-2xl font-bold text-[#99c24d] mb-4">Lorem Ipsom</h3>
+                    <h3 class="font-primary text-2xl font-bold text-[#99c24d] mb-4">{{ $contents['card1_title'] ?? 'Licenciamento Ambiental' }}</h3>
                     <p
                         class="font-secondary text-base text-gray-500 group-hover:text-white transition-colors duration-300">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
+                        {{ $contents['card1_text'] ?? 'Auditorias técnicas de conformidade e obtenção de licenças de operação ambiental.' }}
                     </p>
                 </div>
                 <!-- Card 2 -->
                 <div
                     class="group bg-[#F5F5F5] hover:bg-[#3B6B39] transition-colors duration-300 p-10 border border-[#99c24d]/30 flex flex-col h-full cursor-pointer">
                     <div class="w-16 h-16 mb-6 text-[#99c24d]">
-                        <!-- Icon 2: Quality/Check -->
-                        <img src="{{ asset('images/svg/envaro_2.svg') }}" alt="Icon 1" class="w-full h-full">
+                        <img src="{{ asset('images/svg/envaro_2.svg') }}" alt="Icon 2" class="w-full h-full">
                     </div>
-                    <h3 class="font-primary text-2xl font-bold text-[#99c24d] mb-4">Lorem Ipsom</h3>
+                    <h3 class="font-primary text-2xl font-bold text-[#99c24d] mb-4">{{ $contents['card2_title'] ?? 'Gestão de Resíduos' }}</h3>
                     <p
                         class="font-secondary text-base text-gray-500 group-hover:text-white transition-colors duration-300">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
+                        {{ $contents['card2_text'] ?? 'Processos certificados de recolha, tratamento e descarte ecológico de resíduos industriais.' }}
                     </p>
                 </div>
                 <!-- Card 3 -->
                 <div
                     class="group bg-[#F5F5F5] hover:bg-[#3B6B39] transition-colors duration-300 p-10 border border-[#99c24d]/30 flex flex-col h-full cursor-pointer">
                     <div class="w-16 h-16 mb-6 text-[#99c24d]">
-                        <!-- Icon 3: Energy/Efficiency -->
-                        <img src="{{ asset('images/svg/envaro_3.svg') }}" alt="Icon 1" class="w-full h-full">
+                        <img src="{{ asset('images/svg/envaro_3.svg') }}" alt="Icon 3" class="w-full h-full">
                     </div>
-                    <h3 class="font-primary text-2xl font-bold text-[#99c24d] mb-4">Lorem Ipsom</h3>
+                    <h3 class="font-primary text-2xl font-bold text-[#99c24d] mb-4">{{ $contents['card3_title'] ?? 'Estudos de Impacto' }}</h3>
                     <p
                         class="font-secondary text-base text-gray-500 group-hover:text-white transition-colors duration-300">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
+                        {{ $contents['card3_text'] ?? 'Elaboração de estudos de impacto ambiental e social para grandes empreendimentos.' }}
                     </p>
                 </div>
             </div>
@@ -93,33 +88,27 @@
                 <div class="pr-0 lg:pr-8">
                     <h2
                         class="font-primary text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-8 tracking-tight">
-                        <span class="text-[#3b6b35] block">Lorem ipsum dolor sit amet</span>
-                        <span class="text-[#99c24d] block">consectetur adipiscing</span>
+                        {!! $contents['collage_title'] ?? '<span class="text-[#3b6b35] block">Engenharia Sustentável</span><span class="text-[#99c24d] block">para o Futuro de Angola</span>' !!}
                     </h2>
                     <p class="font-secondary text-lg text-gray-800 leading-relaxed mb-6 font-medium">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                        laudantium,
-                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                        {{ $contents['collage_text_1'] ?? 'A Enviro.AO desenvolve estratégias integradas que alinham os objetivos de crescimento económico com a preservação dos recursos naturais e biodiversidade local.' }}
                     </p>
                     <p class="font-secondary text-lg text-gray-800 leading-relaxed font-medium">
-                        aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                        sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                        adipisci velit, sed quia
+                        {{ $contents['collage_text_2'] ?? 'As nossas equipas multidisciplinares de biólogos, engenheiros ambientais e consultores de sustentabilidade trabalham em parceria com órgãos governamentais e setor privado.' }}
                     </p>
                 </div>
                 <!-- Collage Right -->
                 <div class="relative h-[600px] w-full mt-10 lg:mt-0">
                     <!-- Top Right Image -->
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    <img src="{{ isset($contents['collage_img_1']) ? (str_starts_with($contents['collage_img_1'], 'http') ? $contents['collage_img_1'] : (str_starts_with($contents['collage_img_1'], 'images/') ? asset($contents['collage_img_1']) : asset('storage/' . $contents['collage_img_1']))) : 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' }}"
                         alt="Volunteers" class="absolute top-[5%] right-0 w-[45%] h-[250px] object-cover z-10" />
 
                     <!-- Middle Image -->
-                    <img src="https://www.endiama.co.ao/images/sustentavel/ambiental/img-03.webp" alt="Tree planting"
-                        class="absolute top-[25%] right-[25%] w-[50%] h-[350px] object-cover z-20" />
+                    <img src="{{ isset($contents['collage_img_2']) ? (str_starts_with($contents['collage_img_2'], 'http') ? $contents['collage_img_2'] : (str_starts_with($contents['collage_img_2'], 'images/') ? asset($contents['collage_img_2']) : asset('storage/' . $contents['collage_img_2']))) : 'https://www.endiama.co.ao/images/sustentavel/ambiental/img-03.webp' }}"
+                        alt="Tree planting" class="absolute top-[25%] right-[25%] w-[50%] h-[350px] object-cover z-20" />
 
                     <!-- Bottom Left Image -->
-                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    <img src="{{ isset($contents['collage_img_3']) ? (str_starts_with($contents['collage_img_3'], 'http') ? $contents['collage_img_3'] : (str_starts_with($contents['collage_img_3'], 'images/') ? asset($contents['collage_img_3']) : asset('storage/' . $contents['collage_img_3']))) : 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' }}"
                         alt="Recycling" class="absolute bottom-[5%] left-[5%] w-[40%] h-[250px] object-cover z-30" />
                 </div>
             </div>
@@ -127,8 +116,13 @@
     </section>
 
     <!-- Parallax Section -->
+    @php
+        $parallaxBg = isset($contents['parallax_image'])
+            ? (str_starts_with($contents['parallax_image'], 'http') ? $contents['parallax_image'] : (str_starts_with($contents['parallax_image'], 'images/') ? asset($contents['parallax_image']) : asset('storage/' . $contents['parallax_image'])))
+            : 'https://images.ecycle.com.br/wp-content/uploads/2022/03/18132456/pexels-tom-fisk-2739666-scaled.jpg.webp';
+    @endphp
     <section class="relative py-32 bg-fixed bg-center bg-cover"
-        style="background-image: url('https://images.ecycle.com.br/wp-content/uploads/2022/03/18132456/pexels-tom-fisk-2739666-scaled.jpg.webp');">
+        style="background-image: url('{{ $parallaxBg }}');">
         <!-- Green Overlay with opacity -->
         <div class="absolute inset-0 bg-[#3b6b35]/85"></div>
 
@@ -137,51 +131,39 @@
                 <!-- Left Column -->
                 <div>
                     <h2 class="font-primary text-3xl md:text-4xl font-bold text-white leading-tight mb-8">
-                        Lorem ipsum dolor sit<br>
-                        amet, consectetur
+                        {!! $contents['parallax_title'] ?? 'Soluções Ecológicas com Rigor Técnico e Conformidade' !!}
                     </h2>
                     <p class="font-secondary text-lg text-white/90 leading-relaxed">
-                        Lorem ipsum dolor sit amet,<br class="hidden md:block">
-                        consectetur adipiscing elit, sed do<br class="hidden md:block">
-                        eiusmod tempor incididunt ut labore<br class="hidden md:block">
-                        et dolore magna aliqua. Ut enim ad<br class="hidden md:block">
-                        minim veniam, quis nostrud<br class="hidden md:block">
-                        exercitation ullamco laboris nisi ut<br class="hidden md:block">
-                        aliquip ex ea commodo consequat.
+                        {{ $contents['parallax_text'] ?? 'Garantimos processos rigorosos de auditoria para mitigar riscos ambientais e promover práticas industriais sustentáveis.' }}
                     </p>
                 </div>
                 <!-- Right Column -->
                 <div class="flex justify-start lg:justify-end">
                     <div class="flex flex-col items-start gap-4">
-                        <span
-                            class="font-primary text-5xl md:text-[60px] lg:text-[70px] font-extrabold text-[#99c24d] leading-tight">Lorem
-                            ipsum</span>
-                        <span
-                            class="font-primary text-5xl md:text-[60px] lg:text-[70px] font-extrabold text-[#99c24d] leading-tight">dolor
-                            sit amet</span>
-                        <span
-                            class="font-primary text-5xl md:text-[60px] lg:text-[70px] font-extrabold text-white leading-tight">consectetur</span>
-                        <span
-                            class="font-primary text-5xl md:text-[60px] lg:text-[70px] font-extrabold text-white leading-tight">adipiscing</span>
+                        <span class="font-primary text-5xl md:text-[60px] lg:text-[70px] font-extrabold text-[#99c24d] leading-tight">Engenharia</span>
+                        <span class="font-primary text-5xl md:text-[60px] lg:text-[70px] font-extrabold text-[#99c24d] leading-tight">Ambiental</span>
+                        <span class="font-primary text-5xl md:text-[60px] lg:text-[70px] font-extrabold text-white leading-tight">Sustentável</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Projects Grid Section (NOSSOS PROJECTOS) -->
     <section class="py-24 bg-white">
         <div class="container mx-auto px-6 max-w-[1200px]">
             <div class="mb-12 flex flex-col md:flex-row md:justify-between md:items-end gap-6">
                 <div>
                     <span
-                        class="font-primary text-sm font-bold uppercase tracking-widest text-gray-400 mb-2 block">NOSSOS
-                        PROJECTOS</span>
+                        class="font-primary text-sm font-bold uppercase tracking-widest text-gray-400 mb-2 block">NOSSOS PROJECTOS</span>
                     <h2 class="font-primary text-4xl md:text-5xl font-bold leading-tight">
-                        <span class="text-[#3b6b35]">Projectos que reflectem a nossa</span><br>
-                        <span class="text-[#9DBD4D]">experiência, qualidade e compromisso</span>
+                        {!! $contents['projects_title'] ?? '<span class="text-[#3b6b35]">Projectos que reflectem a nossa</span><br><span class="text-[#9DBD4D]">experiência, qualidade e compromisso</span>' !!}
                     </h2>
+                    <p class="font-secondary text-gray-600 mt-4 max-w-3xl">
+                        {{ $contents['projects_subtitle'] ?? 'Conheça os nossos principais projetos de conservação ambiental e estudos de impacto executados em Angola.' }}
+                    </p>
                 </div>
-                <a href="{{ route('projects') }}"
+                <a href="{{ route('projects', ['category' => 'Enviro.AO']) }}"
                     class="inline-flex items-center gap-2 text-[#3b6b35] hover:opacity-80 font-primary font-bold text-sm transition-all duration-300 group">
                     Ver mais
                     <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
@@ -192,68 +174,44 @@
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="relative aspect-square group overflow-hidden cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Project 1"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <!-- Dark Gradient to make text readable -->
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 transition-opacity duration-300">
-                    </div>
-                    <!-- Hover Green Overlay -->
-                    <div
-                        class="absolute inset-0 bg-[#9DBD4D]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
-                    </div>
+            <!-- Global CMS Projects Filtered by Enviro.AO -->
+            @if($projects && $projects->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    @foreach($projects as $project)
+                        @php
+                            $imgSrc = $project->cover_image 
+                                ? (str_starts_with($project->cover_image, 'http') 
+                                    ? $project->cover_image 
+                                    : (str_starts_with($project->cover_image, 'images/') 
+                                        ? asset($project->cover_image) 
+                                        : asset('storage/' . $project->cover_image))) 
+                                : asset('images/corporate-hero.png');
+                        @endphp
+                        <a href="{{ route('project.details', $project->slug) }}" class="relative aspect-square group overflow-hidden cursor-pointer block">
+                            <img src="{{ $imgSrc }}"
+                                alt="{{ $project->title }}"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 transition-opacity duration-300">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-[#9DBD4D]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
+                            </div>
 
-                    <div class="absolute bottom-0 left-0 p-8 w-full z-20">
-                        <h4 class="font-primary text-2xl font-extrabold text-white mb-1 leading-snug">
-                            Lorem ipsum dolor sit<br>amet, consectetur
-                        </h4>
-                    </div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full z-20">
+                                <h4 class="font-primary text-2xl font-extrabold text-white mb-1 leading-snug">
+                                    {{ $project->title }}
+                                </h4>
+                                <p class="font-secondary text-sm text-white/90 drop-shadow-md">
+                                    {{ $project->category }}
+                                </p>
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
-
-                <!-- Card 2 -->
-                <div class="relative aspect-square group overflow-hidden cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1582967265696-67a840e69123?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Project 2"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 transition-opacity duration-300">
-                    </div>
-                    <!-- Hover Green Overlay -->
-                    <div
-                        class="absolute inset-0 bg-[#9DBD4D]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
-                    </div>
-
-                    <div class="absolute bottom-0 left-0 p-8 w-full z-20">
-                        <h4 class="font-primary text-2xl font-extrabold text-white mb-1 leading-snug">
-                            Lorem ipsum dolor sit<br>amet, consectetur
-                        </h4>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="relative aspect-square group overflow-hidden cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Project 3"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 transition-opacity duration-300">
-                    </div>
-                    <!-- Hover Green Overlay -->
-                    <div
-                        class="absolute inset-0 bg-[#9DBD4D]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
-                    </div>
-
-                    <div class="absolute bottom-0 left-0 p-8 w-full z-20">
-                        <h4 class="font-primary text-2xl font-extrabold text-white mb-1 leading-snug">
-                            Lorem ipsum dolor sit<br>amet, consectetur
-                        </h4>
-                    </div>
-                </div>
-            </div>
+            @else
+                <p class="text-center text-gray-500 py-12">Nenhum projeto encontrado para a Enviro.AO.</p>
+            @endif
         </div>
     </section>
 
@@ -263,37 +221,33 @@
             <div class="grid grid-cols-1 md:grid-cols-2 h-auto">
                 <!-- Top Left: Light Green Text Block -->
                 <div class="bg-[#9DBD4D] p-12 md:p-16 lg:p-20 flex flex-col justify-center">
-                    <h3 class="font-primary text-xl font-bold text-white mb-6 uppercase tracking-wider">Lorem Ipsum
+                    <h3 class="font-primary text-xl font-bold text-white mb-6 uppercase tracking-wider">
+                        {{ $contents['grid1_title'] ?? 'Preservação da Biodiversidade' }}
                     </h3>
                     <p class="font-secondary text-white/95 text-lg leading-relaxed">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        {{ $contents['grid1_text'] ?? 'Desenvolvimento de programas de monitorização de fauna e flora em ecossistemas sensíveis.' }}
                     </p>
                 </div>
 
                 <!-- Top Right: Image (Elephant) -->
                 <div class="h-[400px] md:h-auto relative">
-                    <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    <img src="{{ isset($contents['grid1_image']) ? (str_starts_with($contents['grid1_image'], 'http') ? $contents['grid1_image'] : (str_starts_with($contents['grid1_image'], 'images/') ? asset($contents['grid1_image']) : asset('storage/' . $contents['grid1_image']))) : 'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' }}"
                         alt="Elephant" class="absolute inset-0 w-full h-full object-cover" />
                 </div>
 
                 <!-- Bottom Left: Image (Volunteers/Planting) -->
                 <div class="h-[400px] md:h-auto relative">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    <img src="{{ isset($contents['grid2_image']) ? (str_starts_with($contents['grid2_image'], 'http') ? $contents['grid2_image'] : (str_starts_with($contents['grid2_image'], 'images/') ? asset($contents['grid2_image']) : asset('storage/' . $contents['grid2_image']))) : 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' }}"
                         alt="Volunteers" class="absolute inset-0 w-full h-full object-cover" />
                 </div>
 
                 <!-- Bottom Right: Dark Green Text Block -->
                 <div class="bg-[#3b6b35] p-12 md:p-16 lg:p-20 flex flex-col justify-center">
-                    <h3 class="font-primary text-xl font-bold text-white mb-6 uppercase tracking-wider">Lorem Ipsum
+                    <h3 class="font-primary text-xl font-bold text-white mb-6 uppercase tracking-wider">
+                        {{ $contents['grid2_title'] ?? 'Reflorestação Urbana' }}
                     </h3>
                     <p class="font-secondary text-white/95 text-lg leading-relaxed">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        {{ $contents['grid2_text'] ?? 'Ações comunitárias e industriais para o plantio de árvores nativas em áreas degradadas.' }}
                     </p>
                 </div>
             </div>

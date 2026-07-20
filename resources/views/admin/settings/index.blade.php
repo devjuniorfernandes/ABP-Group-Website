@@ -26,11 +26,25 @@
                            class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#e51718] focus:ring-1 focus:ring-[#e51718] text-sm" placeholder="ex: +244 929 414 778">
                 </div>
 
+                <!-- WhatsApp -->
+                <div>
+                    <label for="contact_whatsapp" class="block font-primary text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Número de WhatsApp (apenas números, ex: 244929414778)</label>
+                    <input type="text" id="contact_whatsapp" name="contact_whatsapp" value="{{ old('contact_whatsapp', $settings['contact_whatsapp'] ?? '') }}" 
+                           class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#e51718] focus:ring-1 focus:ring-[#e51718] text-sm" placeholder="ex: 244929414778">
+                </div>
+
                 <!-- Office Address -->
                 <div>
                     <label for="office_address" class="block font-primary text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Morada do Escritório Central</label>
                     <textarea id="office_address" name="office_address" rows="3" 
                               class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#e51718] focus:ring-1 focus:ring-[#e51718] text-sm" placeholder="Endereço completo...">{{ old('office_address', $settings['office_address'] ?? '') }}</textarea>
+                </div>
+
+                <!-- Footer Description -->
+                <div>
+                    <label for="footer_description" class="block font-primary text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Descrição do Rodapé (Footer)</label>
+                    <textarea id="footer_description" name="footer_description" rows="3" 
+                              class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#e51718] focus:ring-1 focus:ring-[#e51718] text-sm" placeholder="Breve texto explicativo sobre o grupo...">{{ old('footer_description', $settings['footer_description'] ?? '') }}</textarea>
                 </div>
 
                 <!-- Working Hours -->
@@ -45,6 +59,13 @@
                     <label for="social_linkedin" class="block font-primary text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Link do Perfil do LinkedIn</label>
                     <input type="url" id="social_linkedin" name="social_linkedin" value="{{ old('social_linkedin', $settings['social_linkedin'] ?? '') }}" 
                            class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#e51718] focus:ring-1 focus:ring-[#e51718] text-sm" placeholder="https://linkedin.com/company/...">
+                </div>
+
+                <!-- Instagram URL -->
+                <div>
+                    <label for="social_instagram" class="block font-primary text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Link do Perfil do Instagram</label>
+                    <input type="url" id="social_instagram" name="social_instagram" value="{{ old('social_instagram', $settings['social_instagram'] ?? '') }}" 
+                           class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#e51718] focus:ring-1 focus:ring-[#e51718] text-sm" placeholder="https://instagram.com/...">
                 </div>
             </div>
 

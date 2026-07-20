@@ -1,34 +1,45 @@
 <x-layouts.app>
     <x-slot name="title">ABP Group | Soluções Integradas para Energia, Petróleo e Infraestruturas</x-slot>
 
-    <x-hero title="{{ $contents['hero_title'] ?? 'Soluções Integradas para os Sectores de Energia, Petróleo e Infraestruturas' }}"
+    <x-hero
+        title="{{ $contents['hero_title'] ?? 'Soluções Integradas para os Sectores de Energia, Petróleo e Infraestruturas' }}"
         subtitle="{{ $contents['hero_subtitle'] ?? 'Prestamos serviços especializados com elevados padrões de segurança, qualidade e eficiência, contribuindo.' }}"
-        bgImage="{{ asset('images/home-hero-new.png') }}" bgVideo="{{ asset('hero_video.mp4') }}" theme="corporate"
-        height="screen" />
+        bgImage="{{ isset($contents['hero_image']) ? (str_starts_with($contents['hero_image'], 'http') ? $contents['hero_image'] : (str_starts_with($contents['hero_image'], 'images/') ? asset($contents['hero_image']) : asset('storage/' . $contents['hero_image']))) : asset('images/home-hero-new.png') }}"
+        bgVideo="{{ asset('hero_video.mp4') }}" theme="corporate" height="screen" />
 
     <!-- Stats Bar (Underneath the Hero) -->
     <section class="bg-[#334494] text-white py-12 relative z-20">
         <div class="container mx-auto px-6 max-w-[1200px]">
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8 justify-items-center">
                 <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none" data-counter>{{ $contents['stat1_number'] ?? '+10' }}</span>
-                    <span class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat1_text'] ?? 'Anos de experiência consolidada no mercado de Angola.' }}</span>
+                    <span class="font-primary text-7xl text-white mb-2 leading-none"
+                        data-counter>{{ $contents['stat1_number'] ?? '+10' }}</span>
+                    <span
+                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat1_text'] ?? 'Anos de experiência consolidada no mercado de Angola.' }}</span>
                 </div>
                 <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none" data-counter>{{ $contents['stat2_number'] ?? '+150' }}</span>
-                    <span class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat2_text'] ?? 'Projectos civis e industriais executados com excelência.' }}</span>
+                    <span class="font-primary text-7xl text-white mb-2 leading-none"
+                        data-counter>{{ $contents['stat2_number'] ?? '+150' }}</span>
+                    <span
+                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat2_text'] ?? 'Projectos civis e industriais executados com excelência.' }}</span>
                 </div>
                 <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none" data-counter>{{ $contents['stat3_number'] ?? '450' }}</span>
-                    <span class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat3_text'] ?? 'Profissionais qualificados nas equipas operacionais.' }}</span>
+                    <span class="font-primary text-7xl text-white mb-2 leading-none"
+                        data-counter>{{ $contents['stat3_number'] ?? '450' }}</span>
+                    <span
+                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat3_text'] ?? 'Profissionais qualificados nas equipas operacionais.' }}</span>
                 </div>
                 <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none" data-counter>{{ $contents['stat4_number'] ?? '4' }}</span>
-                    <span class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat4_text'] ?? 'Unidades de negócio integradas e complementares.' }}</span>
+                    <span class="font-primary text-7xl text-white mb-2 leading-none"
+                        data-counter>{{ $contents['stat4_number'] ?? '4' }}</span>
+                    <span
+                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat4_text'] ?? 'Unidades de negócio integradas e complementares.' }}</span>
                 </div>
                 <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none" data-counter>{{ $contents['stat5_number'] ?? '18' }}</span>
-                    <span class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat5_text'] ?? 'Províncias cobertas com serviços de infraestruturas.' }}</span>
+                    <span class="font-primary text-7xl text-white mb-2 leading-none"
+                        data-counter>{{ $contents['stat5_number'] ?? '18' }}</span>
+                    <span
+                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat5_text'] ?? 'Províncias cobertas com serviços de infraestruturas.' }}</span>
                 </div>
             </div>
         </div>
@@ -43,16 +54,24 @@
                     <span class="font-primary text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 block">ABP
                         GROUP</span>
                     <h2
-                        class="font-primary text-4xl md:text-5xl lg:text-5.5xl font-extrabold leading-[1.1] tracking-tight">
-                        <span class="text-brand-red block mb-2">{{ $contents['solutions_title_red'] ?? 'Soluções' }}</span>
-                        <span class="text-corporate-primary">{{ $contents['solutions_title_blue'] ?? 'industriais integradas' }}</span>
+                        class="text-[#1c3986] text-4xl md:text-5xl lg:text-5.5xl font-extrabold leading-[1.1] tracking-tight">
+                        <span
+                            class="text-brand-red block mb-2">{{ $contents['solutions_title_red'] ?? 'Soluções' }}</span>
+                        <span class="">{{ $contents['solutions_title_blue'] ?? 'industriais integradas' }}</span>
                     </h2>
                 </div>
 
                 <!-- Right Column (Spans 7 cols on lg) -->
                 <div class="lg:col-span-7 flex flex-col justify-start pt-2 lg:pt-8">
-                    <p class="font-primary text-xl md:text-2xl text-corporate-primary mb-6 leading-relaxed">
-                        {!! str_ireplace('visão', '<strong class="font-extrabold text-brand-red">visão</strong>', e($contents['solutions_vision'] ?? 'A nossa visão — ser o principal parceiro na execução de projectos complexos e sustentáveis de energia, engenharia e ambiente em Angola.')) !!}
+                    <p class="font-primary text-xl md:text-2xl  mb-6 leading-relaxed">
+                        {!! str_ireplace(
+                            'visão',
+                            '<strong class="font-extrabold text-brand-red">visão</strong>',
+                            e(
+                                $contents['solutions_vision'] ??
+                                    'A nossa visão — ser o principal parceiro na execução de projectos complexos e sustentáveis de energia, engenharia e ambiente em Angola.',
+                            ),
+                        ) !!}
                     </p>
 
                     <p class="font-secondary text-sm md:text-base text-gray-500 mb-10 leading-relaxed">
@@ -61,7 +80,7 @@
 
                     <div>
                         <a href="{{ route('services') }}"
-                            class="inline-flex items-center gap-3 text-corporate-primary font-primary font-extrabold text-xs uppercase tracking-widest hover:text-brand-red transition-all duration-300 group">
+                            class="inline-flex items-center gap-3  font-primary font-extrabold text-xs uppercase tracking-widest hover:text-brand-red transition-all duration-300 group">
                             VER ÁREAS DE NEGÓCIO
                             <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
                                 stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -98,7 +117,8 @@
                         <div class="w-4/5 h-4/5 border border-white/10 rounded-full"></div>
                     </div>
 
-                    <span class="font-primary text-xs font-extrabold uppercase tracking-widest text-brand-red z-10">{{ $contents['intro_label'] ?? 'O NOSSO GRUPO' }}</span>
+                    <span
+                        class="font-primary text-xs font-extrabold uppercase tracking-widest text-brand-red z-10">{{ $contents['intro_label'] ?? 'O NOSSO GRUPO' }}</span>
                     <h2 class="font-primary text-4xl font-extrabold text-white leading-tight mt-3 mb-6 z-10">
                         {{ $contents['intro_title'] ?? 'Um Grupo, Múltiplas Competências, Um Só Compromisso com a Excelência' }}
                     </h2>
@@ -108,8 +128,7 @@
                 </div>
 
                 <!-- Flowchart Diagram Box with styled logos inside nodes -->
-                <div
-                    class="w-full rounded-2xl flex flex-col items-center justify-center relative">
+                <div class="w-full rounded-2xl flex flex-col items-center justify-center relative">
                     <!-- Right background shape nested and centered -->
                     <div
                         class="parallax-layer-right absolute left-1/2 top-1/2 -mt-[100px] -ml-[100px] md:-mt-[150px] md:-ml-[150px] w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-white/10 border border-white/15 rounded-full pointer-events-none flex items-center justify-center -z-10">
@@ -168,56 +187,70 @@
                     </div>
 
                     <!-- Desktop Layout: Flowchart diagram -->
-                    <div class="hidden md:block relative w-[660px] h-[380px] shrink-0 origin-center scale-75 lg:scale-70 xl:scale-85 2xl:scale-100 my-[-40px] xl:my-[-20px] 2xl:my-0">
+                    <div
+                        class="hidden md:block relative w-[660px] h-[380px] shrink-0 origin-center scale-75 lg:scale-70 xl:scale-85 2xl:scale-100 my-[-40px] xl:my-[-20px] 2xl:my-0">
                         <!-- SVG Connector Lines -->
-                        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 660 380" fill="none">
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 660 380"
+                            fill="none">
                             <!-- Top left curved connector -->
-                            <path d="M 230 40 H 130 A 30 30 0 0 0 100 70 V 150" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            <path d="M 230 40 H 130 A 30 30 0 0 0 100 70 V 150" stroke="white" stroke-width="2"
+                                stroke-dasharray="5,5" />
                             <!-- Top right curved connector -->
-                            <path d="M 430 40 H 530 A 30 30 0 0 1 560 70 V 150" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            <path d="M 430 40 H 530 A 30 30 0 0 1 560 70 V 150" stroke="white" stroke-width="2"
+                                stroke-dasharray="5,5" />
                             <!-- Top middle straight connector -->
                             <path d="M 330 80 V 150" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
-                            
+
                             <!-- Middle horizontal connectors -->
                             <path d="M 200 190 H 230" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
                             <path d="M 430 190 H 460" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
-                            
+
                             <!-- Bottom left curved connector -->
-                            <path d="M 100 230 V 310 A 30 30 0 0 0 130 340 H 230" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            <path d="M 100 230 V 310 A 30 30 0 0 0 130 340 H 230" stroke="white" stroke-width="2"
+                                stroke-dasharray="5,5" />
                             <!-- Bottom middle straight connector -->
                             <path d="M 330 230 V 300" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
                             <!-- Bottom right curved connector -->
-                            <path d="M 560 230 V 310 A 30 30 0 0 1 530 340 H 430" stroke="white" stroke-width="2" stroke-dasharray="5,5" />
+                            <path d="M 560 230 V 310 A 30 30 0 0 1 530 340 H 430" stroke="white" stroke-width="2"
+                                stroke-dasharray="5,5" />
                         </svg>
 
                         <!-- Top Card -->
-                        <a href="{{ route('home') }}" style="left: 230px; top: 0px; width: 200px; height: 80px;" 
-                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
-                            <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group" class="h-8 w-auto max-w-full object-contain">
+                        <a href="{{ route('home') }}" style="left: 230px; top: 0px; width: 200px; height: 80px;"
+                            class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group"
+                                class="h-8 w-auto max-w-full object-contain">
                         </a>
 
                         <!-- PantherBUILD -->
-                        <a href="{{ route('panther-build') }}" style="left: 0px; top: 150px; width: 200px; height: 80px;" 
-                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
-                            <img src="{{ asset('images/logos/abp_panthrtbuildabp_.png') }}" alt="PantherBUILD" class="h-8 w-auto max-w-full object-contain">
+                        <a href="{{ route('panther-build') }}"
+                            style="left: 0px; top: 150px; width: 200px; height: 80px;"
+                            class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/abp_panthrtbuildabp_.png') }}" alt="PantherBUILD"
+                                class="h-8 w-auto max-w-full object-contain">
                         </a>
 
                         <!-- PantherMAT -->
-                        <a href="{{ route('panther-mat') }}" style="left: 230px; top: 150px; width: 200px; height: 80px;" 
-                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
-                            <img src="{{ asset('images/logos/panthermatabp_.png') }}" alt="PantherMAT" class="h-8 w-auto max-w-full object-contain">
+                        <a href="{{ route('panther-mat') }}"
+                            style="left: 230px; top: 150px; width: 200px; height: 80px;"
+                            class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/panthermatabp_.png') }}" alt="PantherMAT"
+                                class="h-8 w-auto max-w-full object-contain">
                         </a>
 
                         <!-- PantherOIL -->
-                        <a href="{{ route('panther-oil') }}" style="left: 460px; top: 150px; width: 200px; height: 80px;" 
-                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
-                            <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL" class="h-8 w-auto max-w-full object-contain">
+                        <a href="{{ route('panther-oil') }}"
+                            style="left: 460px; top: 150px; width: 200px; height: 80px;"
+                            class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/patheroilabp_.png') }}" alt="PantherOIL"
+                                class="h-8 w-auto max-w-full object-contain">
                         </a>
 
                         <!-- Enviro.AO -->
-                        <a href="{{ route('enviro') }}" style="left: 230px; top: 300px; width: 200px; height: 80px;" 
-                           class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
-                            <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.AO" class="h-8 w-auto max-w-full object-contain">
+                        <a href="{{ route('enviro') }}" style="left: 230px; top: 300px; width: 200px; height: 80px;"
+                            class="absolute bg-white rounded-2xl p-3 z-10 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm">
+                            <img src="{{ asset('images/logos/enviro_ao.png') }}" alt="Enviro.AO"
+                                class="h-8 w-auto max-w-full object-contain">
                         </a>
                     </div>
                 </div>
@@ -233,14 +266,13 @@
                     <span
                         class="font-primary text-xs font-bold uppercase tracking-widest text-brand-red mb-2 block">NOSSOS
                         PROJECTOS</span>
-                    <h2
-                        class="font-primary text-3xl md:text-3.5xl lg:text-4xl font-extrabold text-corporate-primary leading-[1.15] mt-3">
+                    <h2 class="text-[#1c3986] text-3xl md:text-3.5xl lg:text-4xl font-extrabold  leading-[1.15] mt-3">
                         Projectos que reflectem a nossa<br>
                         <span class="text-brand-red">experiência, qualidade e compromisso</span>
                     </h2>
                 </div>
                 <a href="{{ route('projects') }}"
-                    class="inline-flex items-center gap-2 text-brand-red font-primary font-bold text-sm hover:text-corporate-primary transition-all duration-300 group">
+                    class="inline-flex items-center gap-2 text-brand-red font-primary font-bold text-sm hover: transition-all duration-300 group">
                     Ver mais
                     <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -253,13 +285,10 @@
             <!-- Grid displaying customized projects cards to match mockup exactly -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @forelse($latestProjects as $project)
-                    <x-project-card 
-                        title="{{ $project->title }}"
+                    <x-project-card title="{{ $project->title }}"
                         description="{{ Str::limit(strip_tags($project->description), 140) }}"
-                        image="{{ $project->cover_image ? asset('storage/' . $project->cover_image) : asset('images/panther-build-hero.png') }}" 
-                        category="{{ $project->category }}"
-                        link="{{ route('project.details', $project->slug) }}" 
-                    />
+                        image="{{ $project->cover_image ? asset('storage/' . $project->cover_image) : asset('images/panther-build-hero.png') }}"
+                        category="{{ $project->category }}" link="{{ route('project.details', $project->slug) }}" />
                 @empty
                     <p class="col-span-3 text-center text-gray-500 py-8">Nenhum projeto registado de momento.</p>
                 @endforelse
@@ -274,9 +303,12 @@
                 <div>
                     <span
                         class="font-primary text-xs font-bold uppercase tracking-widest text-brand-red mb-2 block">{{ $contents['clients_label'] ?? 'CLIENTES' }}</span>
-                    <h2
-                        class="font-primary text-3xl md:text-3.5xl lg:text-4xl font-extrabold text-corporate-primary leading-[1.15] mt-3">
-                        {!! str_ireplace('capacidade de entrega', '<span class="text-brand-red">capacidade de entrega</span>', e($contents['clients_title'] ?? 'Parcerias estratégicas que reforçam a nossa capacidade de entrega')) !!}
+                    <h2 class="text-[#1c3986] text-3xl md:text-3.5xl lg:text-4xl font-extrabold  leading-[1.15] mt-3">
+                        {!! str_ireplace(
+                            'capacidade de entrega',
+                            '<span class="text-brand-red">capacidade de entrega</span>',
+                            e($contents['clients_title'] ?? 'Parcerias estratégicas que reforçam a nossa capacidade de entrega'),
+                        ) !!}
                     </h2>
                 </div>
 
@@ -411,13 +443,16 @@
                 <div>
                     <span
                         class="font-primary text-xs font-bold uppercase tracking-widest text-brand-red mb-2 block">{{ $contents['news_label'] ?? 'NÓTICIAS E EVENTOS' }}</span>
-                    <h2
-                        class="font-primary text-3xl md:text-3.5xl lg:text-4xl font-extrabold text-corporate-primary leading-[1.15] mt-3">
-                        {!! str_ireplace('actualizações e iniciativas', '<span class="text-brand-red"> actualizações e iniciativas</span>', e($contents['news_title'] ?? 'Acompanhe as nossas últimas actualizações e iniciativas')) !!}
+                    <h2 class="text-[#1c3986] text-3xl md:text-3.5xl lg:text-4xl font-extrabold  leading-[1.15] mt-3">
+                        {!! str_ireplace(
+                            'actualizações e iniciativas',
+                            '<span class="text-brand-red"> actualizações e iniciativas</span>',
+                            e($contents['news_title'] ?? 'Acompanhe as nossas últimas actualizações e iniciativas'),
+                        ) !!}
                     </h2>
                 </div>
                 <a href="{{ route('news') }}"
-                    class="inline-flex items-center gap-2 text-corporate-primary font-primary font-extrabold text-xs uppercase tracking-widest hover:text-brand-red transition-all duration-300 group">
+                    class="inline-flex items-center gap-2  font-primary font-extrabold text-xs uppercase tracking-widest hover:text-brand-red transition-all duration-300 group">
                     VER MAIS
                     <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -430,12 +465,12 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-100">
                 @forelse($latestPosts as $post)
                     <div class="py-8 md:py-0 md:px-8 first:pl-0 last:pr-0 group">
-                        @if($post->category)
+                        @if ($post->category)
                             <span
                                 class="font-primary text-[10px] font-bold text-brand-red uppercase tracking-widest block mb-3">#{{ $post->category }}</span>
                         @endif
                         <h3
-                            class="font-primary text-lg font-bold text-corporate-primary mb-3 leading-snug group-hover:text-[#E51718] transition-colors">
+                            class="font-primary text-lg font-bold  mb-3 leading-snug group-hover:text-[#E51718] transition-colors">
                             <a href="{{ route('news.details', $post->slug) }}">{{ $post->title }}</a>
                         </h3>
                         <p class="font-secondary text-sm text-gray-500 leading-relaxed mb-4">

@@ -4,8 +4,7 @@
     <!-- Hero Banner -->
     <x-hero 
         title="{{ $contents['hero_title'] ?? 'Contacte-nos' }}"
-        subtitle="{{ $contents['hero_subtitle'] ?? 'Tem alguma dúvida ou proposta de parceria? Fale connosco através de um dos nossos canais de comunicação corporativos.' }}"
-        bgImage="{{ asset('images/corporate-hero.png') }}"
+        bgImage="{{ isset($contents['hero_image']) ? (str_starts_with($contents['hero_image'], 'http') ? $contents['hero_image'] : (str_starts_with($contents['hero_image'], 'images/') ? asset($contents['hero_image']) : asset('storage/' . $contents['hero_image']))) : asset('images/corporate-hero.png') }}"
         theme="corporate"
         height="ultra-short"
     />

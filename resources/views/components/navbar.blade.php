@@ -1,10 +1,10 @@
-@props(['logo' => 'images/logos/groupabp_.png', 'logoUrl' => null])
+@props([])
 
 <header class="main-header fixed top-0 left-0 w-full h-20 text-white z-50 transition-all duration-300 flex items-center">
     <div class="container mx-auto px-6 flex justify-between items-center h-full max-w-[1200px]">
         <!-- Logo -->
-        <a href="{{ $logoUrl ?? route('home') }}" class="flex items-center justify-center bg-white h-full px-6">
-            <img src="{{ asset($logo) }}" alt="ABP Group" class="h-12 w-auto object-contain">
+        <a href="{{ route('home') }}" class="flex items-center justify-center bg-white h-full px-6">
+            <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group" class="h-12 w-auto object-contain">
         </a>
 
         <!-- Desktop Navigation -->
@@ -32,11 +32,11 @@
                     </span>
                     <ul
                         class="absolute top-full left-1/2 -translate-x-1/2 translate-y-2.5 bg-white rounded-md  min-w-[200px] py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 border border-gray-100 z-50">
-                        <li><a href="{{ route('panther-mat') }}"
-                                class="block px-6 py-2.5 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-corporate-primary transition-colors">PantherMAT</a>
-                        </li>
                         <li><a href="{{ route('panther-build') }}"
                                 class="block px-6 py-2.5 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-corporate-primary transition-colors">PantherBUILD</a>
+                        </li>
+                        <li><a href="{{ route('panther-mat') }}"
+                                class="block px-6 py-2.5 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-corporate-primary transition-colors">PantherMAT</a>
                         </li>
                         <li><a href="{{ route('panther-oil') }}"
                                 class="block px-6 py-2.5 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-corporate-primary transition-colors">PantherOIL</a>
@@ -94,11 +94,11 @@
             <li
                 class="text-xs font-extrabold text-gray-400 uppercase tracking-widest mt-4 border-b border-gray-100 pb-1.5">
                 ÁREAS DE NEGÓCIO</li>
-            <li><a href="{{ route('panther-mat') }}"
-                    class="font-primary text-base font-semibold text-corporate-primary block hover:text-corporate-accent pl-5 transition-colors">PantherMAT</a>
-            </li>
             <li><a href="{{ route('panther-build') }}"
                     class="font-primary text-base font-semibold text-corporate-primary block hover:text-corporate-accent pl-5 transition-colors">PantherBUILD</a>
+            </li>
+            <li><a href="{{ route('panther-mat') }}"
+                    class="font-primary text-base font-semibold text-corporate-primary block hover:text-corporate-accent pl-5 transition-colors">PantherMAT</a>
             </li>
             <li><a href="{{ route('panther-oil') }}"
                     class="font-primary text-base font-semibold text-corporate-primary block hover:text-corporate-accent pl-5 transition-colors">PantherOIL</a>

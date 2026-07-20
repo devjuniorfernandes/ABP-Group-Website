@@ -3,8 +3,7 @@
 
     <!-- Hero Banner -->
     <x-hero title="{{ $contents['hero_title'] ?? 'Certificações' }}"
-        subtitle="{{ $contents['hero_subtitle'] ?? 'O nosso compromisso com os mais altos padrões de qualidade, segurança e excelência.' }}"
-        bgImage="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        bgImage="{{ isset($contents['hero_image']) ? (str_starts_with($contents['hero_image'], 'http') ? $contents['hero_image'] : (str_starts_with($contents['hero_image'], 'images/') ? asset($contents['hero_image']) : asset('storage/' . $contents['hero_image']))) : 'https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80' }}"
         theme="corporate" height="short" />
 
     <!-- Content Section -->

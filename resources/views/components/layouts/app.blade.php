@@ -1,4 +1,4 @@
-@props(['logo' => null, 'logoUrl' => null, 'hideFooter' => false])
+@props(['hideFooter' => false])
 <!DOCTYPE html>
 <html lang="pt-PT">
 
@@ -35,12 +35,7 @@
 
 <body>
 
-    <!-- Header Navigation -->
-    @if($logo)
-        <x-navbar logo="{{ $logo }}" logoUrl="{{ $logoUrl ?? route('home') }}" />
-    @else
-        <x-navbar />
-    @endif
+    <x-navbar />
 
     <!-- Main Content -->
     <main>

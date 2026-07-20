@@ -3,8 +3,7 @@
 
     <!-- Hero Banner -->
     <x-hero title="{{ $contents['hero_title'] ?? 'Sustentabilidade (ESG)' }}"
-        subtitle="{{ $contents['hero_subtitle'] ?? 'Acreditamos num desenvolvimento económico que respeita o ambiente e promove o bem-estar social.' }}"
-        bgImage="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        bgImage="{{ isset($contents['hero_image']) ? (str_starts_with($contents['hero_image'], 'http') ? $contents['hero_image'] : (str_starts_with($contents['hero_image'], 'images/') ? asset($contents['hero_image']) : asset('storage/' . $contents['hero_image']))) : 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80' }}"
         theme="corporate" height="short" />
 
     <!-- Content Section -->

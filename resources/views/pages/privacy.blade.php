@@ -3,8 +3,7 @@
 
     <!-- Hero Banner -->
     <x-hero title="{{ $contents['hero_title'] ?? 'Política de Privacidade' }}"
-        subtitle="{{ $contents['hero_subtitle'] ?? 'A sua privacidade é importante para nós. Saiba como recolhemos, utilizamos e protegemos os seus dados.' }}"
-        bgImage="https://images.unsplash.com/photo-1450101499163-c8848c66cb85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        bgImage="{{ isset($contents['hero_image']) ? (str_starts_with($contents['hero_image'], 'http') ? $contents['hero_image'] : (str_starts_with($contents['hero_image'], 'images/') ? asset($contents['hero_image']) : asset('storage/' . $contents['hero_image']))) : 'https://images.unsplash.com/photo-1450101499163-c8848c66cb85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80' }}"
         theme="corporate" height="short" />
 
     <!-- Content Section -->

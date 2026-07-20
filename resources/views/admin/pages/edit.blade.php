@@ -72,10 +72,32 @@
                                         @if($item->value)
                                             <div class="mt-2">
                                                 <span class="text-xs text-gray-400 block mb-1">Imagem Atual:</span>
-                                                @if(str_starts_with($item->value, 'images/'))
-                                                    <img src="{{ asset($item->value) }}" alt="Preview" class="w-48 h-28 object-cover border border-gray-200">
+                                                @if(str_starts_with($item->value, 'images/') || str_starts_with($item->value, 'http'))
+                                                    <img src="{{ str_starts_with($item->value, 'http') ? $item->value : asset($item->value) }}" alt="Preview" class="w-48 h-28 object-cover border border-gray-200">
                                                 @else
                                                     <img src="{{ asset('storage/' . $item->value) }}" alt="Preview" class="w-48 h-28 object-cover border border-gray-200">
+                                                @endif
+                                            </div>
+                                        @endif
+                                    @elseif($item->type === 'video')
+                                        <input type="file" name="images[{{ $item->id }}]" accept="video/*"
+                                               class="w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:border-0 file:bg-gray-100 file:text-[#1a2c42] file:font-semibold file:text-xs file:uppercase file:tracking-wider hover:file:bg-gray-200 cursor-pointer mb-2 rounded-none">
+                                        @if($item->value)
+                                            <div class="mt-2">
+                                                <span class="text-xs text-gray-400 block mb-1">Vídeo Atual:</span>
+                                                @if(str_starts_with($item->value, 'http'))
+                                                    <a href="{{ $item->value }}" target="_blank" class="text-xs text-blue-600 underline block mb-2">Visualizar Vídeo Remoto</a>
+                                                    <video class="w-48 h-28 object-cover border border-gray-200" controls>
+                                                        <source src="{{ $item->value }}" type="video/mp4">
+                                                    </video>
+                                                @elseif(str_starts_with($item->value, 'images/') || !str_contains($item->value, '/'))
+                                                    <video class="w-48 h-28 object-cover border border-gray-200" controls>
+                                                        <source src="{{ asset($item->value) }}" type="video/mp4">
+                                                    </video>
+                                                @else
+                                                    <video class="w-48 h-28 object-cover border border-gray-200" controls>
+                                                        <source src="{{ asset('storage/' . $item->value) }}" type="video/mp4">
+                                                    </video>
                                                 @endif
                                             </div>
                                         @endif
