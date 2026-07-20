@@ -3,15 +3,22 @@
 @section('header_title', 'Editar Página: ' . $pageName)
 
 @section('content')
-    <!-- Trix Editor Assets (used if rich_text fields exist) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
+    <!-- CKEditor 5 Assets -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <style>
-        trix-toolbar .trix-button-group--file-tools {
-            display: none !important;
+        .ck-editor__editable {
+            min-height: 220px !important;
+            font-family: inherit !important;
+            background-color: #f9fafb !important;
         }
-        trix-editor {
-            border-radius: 0px !important;
+        .ck.ck-editor__main>.ck-editor__editable:focus {
+            border-color: #e51718 !important;
+            box-shadow: none !important;
+            background-color: #ffffff !important;
+        }
+        .ck.ck-toolbar {
+            border-color: #e5e7eb !important;
+            background: #ffffff !important;
         }
     </style>
 
@@ -63,8 +70,7 @@
                                                   class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#e51718] focus:ring-1 focus:ring-[#e51718] text-sm text-gray-800 rounded-none">{{ old('values.' . $item->id, $item->value) }}</textarea>
                                     
                                     @elseif($item->type === 'rich_text')
-                                        <input id="value_{{ $item->id }}" type="hidden" name="values[{{ $item->id }}]" value="{{ old('values.' . $item->id, $item->value) }}">
-                                        <trix-editor input="value_{{ $item->id }}" class="bg-gray-50 border border-gray-200 text-sm min-h-[200px] focus:outline-none focus:border-[#e51718] focus:ring-1 focus:ring-[#e51718] p-4 text-gray-800 rounded-none"></trix-editor>
+                                        <textarea id="rich_editor_{{ $item->id }}" name="values[{{ $item->id }}]" class="w-full ckeditor-field">{!! old('values.' . $item->id, $item->value) !!}</textarea>
                                     
                                     @elseif($item->type === 'image')
                                         <input type="file" name="images[{{ $item->id }}]" 
@@ -118,4 +124,22 @@
             @endforeach
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll('.ckeditor-field').forEach(field => {
+                ClassicEditor
+                    .create(field, {
+                        toolbar: [
+                            'heading', '|',
+                            'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', '|',
+                            'undo', 'redo'
+                        ]
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
 @endsection

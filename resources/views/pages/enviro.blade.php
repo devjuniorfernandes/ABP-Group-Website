@@ -262,7 +262,7 @@
                 <h2 class="font-primary text-xl md:text-2xl font-bold uppercase tracking-wider text-[#3b6b35]">
                     NOTICIAS E EVENTOS
                 </h2>
-                <a href="{{ route('news') }}"
+                <a href="{{ route('news', ['search' => 'Enviro']) }}"
                     class="inline-flex items-center gap-2 text-[#3b6b35] hover:opacity-80 font-primary text-lg transition-all duration-300 group">
                     Ver mais
                     <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
@@ -273,46 +273,26 @@
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <!-- News 1 -->
-                <div class="border-l-2 border-gray-200 pl-6 group cursor-pointer">
-                    <h4
-                        class="font-primary text-[22px] font-bold text-gray-400 group-hover:text-[#3b6b35] transition-colors duration-300 mb-4 leading-tight">
-                        Acompanhe as nossas últimas<br>actualizações e iniciativas
-                    </h4>
-                    <p class="font-secondary text-base text-gray-400 leading-relaxed mb-6 pr-4">
-                        Partilhamos os acontecimentos, projectos e conquistas que demonstram a evolução do grupo e o
-                        impacto das nossas actividades nos sectores onde actuamos.
-                    </p>
-                    <span class="font-secondary text-sm text-[#9DBD4D] font-medium">07 Março 2025</span>
+            @if(isset($news) && $news->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    @foreach($news as $item)
+                        <a href="{{ route('news.details', $item->slug) }}" class="border-l-2 border-gray-200 pl-6 group cursor-pointer block">
+                            <h4
+                                class="font-primary text-[22px] font-bold text-gray-700 group-hover:text-[#3b6b35] transition-colors duration-300 mb-4 leading-tight">
+                                {{ $item->title }}
+                            </h4>
+                            <p class="font-secondary text-base text-gray-500 leading-relaxed mb-6 pr-4 line-clamp-3">
+                                {{ $item->summary ?? Str::limit(strip_tags($item->content), 120) }}
+                            </p>
+                            <span class="font-secondary text-sm text-[#9DBD4D] font-medium">
+                                {{ $item->published_at ? $item->published_at->format('d M Y') : $item->created_at->format('d M Y') }}
+                            </span>
+                        </a>
+                    @endforeach
                 </div>
-
-                <!-- News 2 -->
-                <div class="border-l-2 border-gray-200 pl-6 group cursor-pointer">
-                    <h4
-                        class="font-primary text-[22px] font-bold text-gray-400 group-hover:text-[#3b6b35] transition-colors duration-300 mb-4 leading-tight">
-                        Acompanhe as nossas últimas<br>actualizações e iniciativas
-                    </h4>
-                    <p class="font-secondary text-base text-gray-400 leading-relaxed mb-6 pr-4">
-                        Partilhamos os acontecimentos, projectos e conquistas que demonstram a evolução do grupo e o
-                        impacto das nossas actividades nos sectores onde actuamos.
-                    </p>
-                    <span class="font-secondary text-sm text-[#9DBD4D] font-medium">07 Março 2025</span>
-                </div>
-
-                <!-- News 3 -->
-                <div class="border-l-2 border-gray-200 pl-6 group cursor-pointer">
-                    <h4
-                        class="font-primary text-[22px] font-bold text-gray-400 group-hover:text-[#3b6b35] transition-colors duration-300 mb-4 leading-tight">
-                        Acompanhe as nossas últimas<br>actualizações e iniciativas
-                    </h4>
-                    <p class="font-secondary text-base text-gray-400 leading-relaxed mb-6 pr-4">
-                        Partilhamos os acontecimentos, projectos e conquistas que demonstram a evolução do grupo e o
-                        impacto das nossas actividades nos sectores onde actuamos.
-                    </p>
-                    <span class="font-secondary text-sm text-[#9DBD4D] font-medium">07 Março 2025</span>
-                </div>
-            </div>
+            @else
+                <p class="text-center text-gray-500 py-12">Nenhuma notícia registada para a Enviro.AO.</p>
+            @endif
         </div>
     </section>
 
@@ -322,7 +302,7 @@
             <!-- Logo and Short Description -->
             <div class="lg:col-span-1 flex flex-col gap-4">
                 <a href="{{ route('home') }}" class="flex items-center text-current">
-                    <img src="{{ asset('images/logos/groupabp_.png') }}" alt="ABP Group"
+                    <img src="{{ asset('images/logos/groupabp_white.png') }}" alt="ABP Group"
                         class="h-10 w-auto object-contain">
                 </a>
                 <p class="text-[11px] text-white/90 leading-relaxed mt-2">

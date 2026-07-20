@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app :solidHeader="true">
     <x-slot name="title">{{ $project->title }} | ABP Group</x-slot>
 
     <!-- Hero Banner -->

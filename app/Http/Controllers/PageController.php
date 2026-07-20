@@ -44,7 +44,15 @@ class PageController extends Controller
             ->orderBy('created_at', 'desc')
             ->take(6)
             ->get();
-        return view('pages.enviro', compact('contents', 'projects'));
+        $news = \App\Models\Post::where('published_at', '<=', now())
+            ->where(function($q) {
+                $q->where('category', 'like', '%Enviro%')
+                  ->orWhere('title', 'like', '%Enviro%');
+            })
+            ->orderBy('published_at', 'desc')
+            ->take(3)
+            ->get();
+        return view('pages.enviro', compact('contents', 'projects', 'news'));
     }
 
     public function pantherOil()

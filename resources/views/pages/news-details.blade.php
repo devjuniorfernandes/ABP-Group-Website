@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app :solidHeader="true">
     <x-slot name="title">{{ $post->title }} | ABP Group</x-slot>
 
     <!-- Header Section -->

@@ -9,6 +9,7 @@ class NewsController extends Controller
 {
     public function index(Request $request)
     {
+        $contents = \App\Models\PageContent::where('page_key', 'news')->pluck('value', 'content_key')->all();
         $search = $request->query('search');
         $query = Post::where('published_at', '<=', now())
             ->orderBy('published_at', 'desc');
@@ -28,7 +29,7 @@ class NewsController extends Controller
             ->limit(4)
             ->get();
 
-        return view('pages.news', compact('posts', 'popular_posts', 'search'));
+        return view('pages.news', compact('contents', 'posts', 'popular_posts', 'search'));
     }
 
     public function show($slug)

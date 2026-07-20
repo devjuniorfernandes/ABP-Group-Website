@@ -3,15 +3,22 @@
 @section('header_title', 'Criar Notícia')
 
 @section('content')
-    <!-- Trix Editor Assets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
+    <!-- CKEditor 5 Assets -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <style>
-        trix-toolbar .trix-button-group--file-tools {
-            display: none !important; /* Hide file uploads in editor to avoid complex storage configs */
+        .ck-editor__editable {
+            min-height: 280px !important;
+            font-family: inherit !important;
+            background-color: #f9fafb !important;
         }
-        trix-editor {
-            border-radius: 0px !important;
+        .ck.ck-editor__main>.ck-editor__editable:focus {
+            border-color: #e51718 !important;
+            box-shadow: none !important;
+            background-color: #ffffff !important;
+        }
+        .ck.ck-toolbar {
+            border-color: #e5e7eb !important;
+            background: #ffffff !important;
         }
     </style>
 
@@ -98,11 +105,10 @@
                     @enderror
                 </div>
 
-                <!-- Content (Rich Text) -->
+                <!-- Content (Rich Text - CKEditor 5) -->
                 <div class="form-group md:col-span-2">
-                    <label for="content" class="block font-primary text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Conteúdo do Artigo *</label>
-                    <input id="content" type="hidden" name="content" value="{{ old('content') }}">
-                    <trix-editor input="content" class="bg-gray-50 border border-gray-200 text-sm min-h-[300px] focus:outline-none focus:border-[#e51718] focus:ring-1 focus:ring-[#e51718] p-4"></trix-editor>
+                    <label for="content_editor" class="block font-primary text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Conteúdo do Artigo *</label>
+                    <textarea id="content_editor" name="content" class="w-full">{!! old('content') !!}</textarea>
                     @error('content')
                         <span class="text-red-500 text-xs mt-1 block font-medium">{{ $message }}</span>
                     @enderror
@@ -118,4 +124,22 @@
             </div>
         </form>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (document.querySelector('#content_editor')) {
+                ClassicEditor
+                    .create(document.querySelector('#content_editor'), {
+                        toolbar: [
+                            'heading', '|',
+                            'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', '|',
+                            'undo', 'redo'
+                        ]
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        });
+    </script>
 @endsection

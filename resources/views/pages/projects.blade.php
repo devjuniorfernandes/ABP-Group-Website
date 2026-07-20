@@ -2,8 +2,9 @@
     <x-slot name="title">Projectos | ABP Group - Portfólio de Referência em Angola</x-slot>
 
     <!-- Hero Banner -->
-    <x-hero title="" subtitle="" bgImage="{{ asset('images/corporate-hero.png') }}" theme="corporate"
-        height="ultra-short" />
+    <x-hero title="{{ $contents['hero_title'] ?? 'Projectos' }}" subtitle="{{ $contents['hero_subtitle'] ?? '' }}"
+        bgImage="{{ isset($contents['hero_image']) ? (str_starts_with($contents['hero_image'], 'http') ? $contents['hero_image'] : (str_starts_with($contents['hero_image'], 'images/') ? asset($contents['hero_image']) : asset('storage/' . $contents['hero_image']))) : asset('images/corporate-hero.png') }}"
+        theme="corporate" />
 
     <!-- Portfolio Grid Section -->
     <section class="section">

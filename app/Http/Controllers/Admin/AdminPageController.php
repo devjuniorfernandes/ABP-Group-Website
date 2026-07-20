@@ -18,6 +18,8 @@ class AdminPageController extends Controller
         'panther-mat' => 'PantherMAT',
         'panther-oil' => 'PantherOIL',
         'enviro' => 'Enviro.AO',
+        'projects' => 'Projectos',
+        'news' => 'Notícias',
         'certificacoes' => 'Certificações',
         'sustentabilidade' => 'Sustentabilidade',
         'politica-de-privacidade' => 'Política de Privacidade',

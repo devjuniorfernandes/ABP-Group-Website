@@ -1,6 +1,6 @@
-@props([])
+@props(['solid' => false])
 
-<header class="main-header fixed top-0 left-0 w-full h-20 text-white z-50 transition-all duration-300 flex items-center">
+<header class="main-header fixed top-0 left-0 w-full h-20 text-white z-50 transition-all duration-300 flex items-center {{ $solid ? 'bg-[#0d1e3d] shadow-md' : '' }}">
     <div class="container mx-auto px-6 flex justify-between items-center h-full max-w-[1200px]">
         <!-- Logo -->
         <a href="{{ route('home') }}" class="flex items-center justify-center bg-white h-full px-6">

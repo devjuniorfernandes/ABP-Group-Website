@@ -1569,6 +1569,42 @@ class PageContentSeeder extends Seeder
                 'type' => 'image',
                 'value' => 'https://images.unsplash.com/photo-1450101499163-c8848c66cb85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
             ],
+
+            // PROJECTS PAGE
+            [
+                'page_key' => 'projects',
+                'section_key' => 'hero',
+                'content_key' => 'hero_title',
+                'label' => 'Título do Banner Principal (Hero)',
+                'type' => 'text',
+                'value' => 'Projectos',
+            ],
+            [
+                'page_key' => 'projects',
+                'section_key' => 'hero',
+                'content_key' => 'hero_image',
+                'label' => 'Imagem de Fundo do Hero',
+                'type' => 'image',
+                'value' => 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+            ],
+
+            // NEWS PAGE
+            [
+                'page_key' => 'news',
+                'section_key' => 'hero',
+                'content_key' => 'hero_title',
+                'label' => 'Título do Banner Principal (Hero)',
+                'type' => 'text',
+                'value' => 'Notícias',
+            ],
+            [
+                'page_key' => 'news',
+                'section_key' => 'hero',
+                'content_key' => 'hero_image',
+                'label' => 'Imagem de Fundo do Hero',
+                'type' => 'image',
+                'value' => 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+            ],
         ];
 
         foreach ($contents as $content) {

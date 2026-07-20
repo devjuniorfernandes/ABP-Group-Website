@@ -1,4 +1,4 @@
-@props(['hideFooter' => false])
+@props(['hideFooter' => false, 'solidHeader' => false])
 <!DOCTYPE html>
 <html lang="pt-PT">
 
@@ -35,7 +35,7 @@
 
 <body>
 
-    <x-navbar />
+    <x-navbar :solid="$solidHeader" />
 
     <!-- Main Content -->
     <main>
