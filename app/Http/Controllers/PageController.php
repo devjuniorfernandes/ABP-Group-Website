@@ -24,12 +24,6 @@ class PageController extends Controller
         return view('pages.about', compact('contents'));
     }
 
-    public function services()
-    {
-        $contents = PageContent::where('page_key', 'services')->pluck('value', 'content_key')->all();
-        return view('pages.services', compact('contents'));
-    }
-
     public function contact()
     {
         $contents = PageContent::where('page_key', 'contact')->pluck('value', 'content_key')->all();

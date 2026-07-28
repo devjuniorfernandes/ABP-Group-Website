@@ -10,37 +10,26 @@
     <!-- Stats Bar (Underneath the Hero) -->
     <section class="bg-[#334494] text-white py-12 relative z-20">
         <div class="container mx-auto px-6 max-w-[1200px]">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 justify-items-center">
-                <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none"
-                        data-counter>{{ $contents['stat1_number'] ?? '+10' }}</span>
-                    <span
-                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat1_text'] ?? 'Anos de experiência consolidada no mercado de Angola.' }}</span>
-                </div>
-                <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none"
-                        data-counter>{{ $contents['stat2_number'] ?? '+150' }}</span>
-                    <span
-                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat2_text'] ?? 'Projectos civis e industriais executados com excelência.' }}</span>
-                </div>
-                <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none"
-                        data-counter>{{ $contents['stat3_number'] ?? '450' }}</span>
-                    <span
-                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat3_text'] ?? 'Profissionais qualificados nas equipas operacionais.' }}</span>
-                </div>
-                <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none"
-                        data-counter>{{ $contents['stat4_number'] ?? '4' }}</span>
-                    <span
-                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat4_text'] ?? 'Unidades de negócio integradas e complementares.' }}</span>
-                </div>
-                <div class="flex flex-col text-left">
-                    <span class="font-primary text-7xl text-white mb-2 leading-none"
-                        data-counter>{{ $contents['stat5_number'] ?? '18' }}</span>
-                    <span
-                        class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $contents['stat5_text'] ?? 'Províncias cobertas com serviços de infraestruturas.' }}</span>
-                </div>
+            @php
+                $homeStats = [];
+                foreach ($contents as $key => $value) {
+                    if (preg_match('/^stat(\d+)_number$/', $key, $m)) {
+                        $num = (int)$m[1];
+                        $homeStats[$num]['number'] = $value;
+                        $homeStats[$num]['text'] = $contents["stat{$num}_text"] ?? '';
+                    }
+                }
+                ksort($homeStats);
+            @endphp
+            <div class="grid grid-cols-2 md:grid-cols-{{ max(1, min(count($homeStats), 6)) }} gap-8 justify-items-center">
+                @foreach($homeStats as $stat)
+                    <div class="flex flex-col text-left">
+                        <span class="font-primary text-7xl text-white mb-2 leading-none"
+                            data-counter>{{ $stat['number'] }}</span>
+                        <span
+                            class="font-secondary text-sm max-w-[150px] leading-relaxed">{{ $stat['text'] }}</span>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -63,7 +52,7 @@
 
                 <!-- Right Column (Spans 7 cols on lg) -->
                 <div class="lg:col-span-7 flex flex-col justify-start pt-2 lg:pt-8">
-                    <p class="font-primary text-xl md:text-2xl  mb-6 leading-relaxed">
+                    <p class="font-primary text-xl md:text-2xl mb-10 leading-relaxed">
                         {!! str_ireplace(
                             'visão',
                             '<strong class="font-extrabold text-brand-red">visão</strong>',
@@ -74,21 +63,6 @@
                         ) !!}
                     </p>
 
-                    <p class="font-secondary text-sm md:text-base text-gray-500 mb-10 leading-relaxed">
-                        {{ $contents['solutions_desc'] ?? 'A excelência operacional e o rigor na segurança são os fundamentos de todas as nossas intervenções. Colaboramos estreitamente com os nossos clientes e parceiros para ir além do convencional, superando desafios técnicos e logísticos e implementando soluções que acrescentam valor real e promovem o desenvolvimento industrial do país.' }}
-                    </p>
-
-                    <div>
-                        <a href="{{ route('services') }}"
-                            class="inline-flex items-center gap-3  font-primary font-extrabold text-xs uppercase tracking-widest hover:text-brand-red transition-all duration-300 group">
-                            VER ÁREAS DE NEGÓCIO
-                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                    </div>
                 </div>
 
             </div>
@@ -96,7 +70,8 @@
     </section>
 
     <!-- O Nosso Grupo Section (Mockup layout flow) -->
-    <section class="bg-[#304595] text-white py-24 relative overflow-hidden parallax-section parallax-section-timeline">
+    <section id="nosso-grupo"
+        class="bg-[#304595] text-white py-24 relative overflow-hidden parallax-section parallax-section-timeline">
         <!-- Background Parallax Shapes -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
             <!-- Glowing background orbs -->
@@ -122,7 +97,7 @@
                     <h2 class="font-primary text-4xl font-extrabold text-white leading-tight mt-3 mb-6 z-10">
                         {{ $contents['intro_title'] ?? 'Um Grupo, Múltiplas Competências, Um Só Compromisso com a Excelência' }}
                     </h2>
-                    <p class="font-secondary text-sm text-white/70 leading-relaxed z-10">
+                    <p class="font-secondary text-base text-white/70 leading-relaxed z-10">
                         {{ $contents['intro_text'] ?? 'O ABP Group reúne empresas especializadas que actuam em sectores estratégicos da economia, offerecendo soluções integradas em energia, engenharia, construção, gestão de infraestruturas, saúde e consultoria ambiental. Através da complementaridade das nossas áreas de negócio, entregamos valor, inovação e resultados sustentáveis aos nossos clientes.' }}
                     </p>
                 </div>

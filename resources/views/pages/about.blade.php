@@ -91,79 +91,29 @@
     <!-- Stats Grid Section -->
     <section class="py-12 bg-white">
         <div class="container mx-auto px-6 max-w-[1000px]">
+            @php
+                $aboutStats = [];
+                foreach ($contents as $key => $value) {
+                    if (preg_match('/^stat(\d+)_number$/', $key, $m)) {
+                        $num = (int)$m[1];
+                        $aboutStats[$num]['number'] = $value;
+                        $aboutStats[$num]['suffix'] = $contents["stat{$num}_suffix"] ?? '';
+                        $aboutStats[$num]['label'] = $contents["stat{$num}_label"] ?? '';
+                    }
+                }
+                ksort($aboutStats);
+            @endphp
             <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center" id="stats-container">
-                <!-- Stat 1 -->
-                <div>
-                    <h3 class="font-primary text-5xl md:text-6xl text-[#3b4b8a] mb-2 font-light">
-                        <span class="counter"
-                            data-target="{{ $contents['stat1_number'] ?? '150' }}">0</span>{{ $contents['stat1_suffix'] ?? '+' }}
-                    </h3>
-                    <p class="font-secondary text-sm text-gray-500">
-                        {{ $contents['stat1_label'] ?? 'Projetos Concluídos' }}</p>
-                </div>
-                <!-- Stat 2 -->
-                <div>
-                    <h3 class="font-primary text-5xl md:text-6xl text-[#3b4b8a] mb-2 font-light">
-                        <span class="counter"
-                            data-target="{{ $contents['stat2_number'] ?? '450' }}">0</span>{{ $contents['stat2_suffix'] ?? '+' }}
-                    </h3>
-                    <p class="font-secondary text-sm text-gray-500">
-                        {{ $contents['stat2_label'] ?? 'Colaboradores Diretos' }}</p>
-                </div>
-                <!-- Stat 3 -->
-                <div>
-                    <h3 class="font-primary text-5xl md:text-6xl text-[#3b4b8a] mb-2 font-light">
-                        <span class="counter"
-                            data-target="{{ $contents['stat3_number'] ?? '4' }}">0</span>{{ $contents['stat3_suffix'] ?? '' }}
-                    </h3>
-                    <p class="font-secondary text-sm text-gray-500">
-                        {{ $contents['stat3_label'] ?? 'Áreas de Negócio' }}</p>
-                </div>
-                <!-- Stat 4 -->
-                <div>
-                    <h3 class="font-primary text-5xl md:text-6xl text-[#3b4b8a] mb-2 font-light">
-                        <span class="counter"
-                            data-target="{{ $contents['stat4_number'] ?? '15' }}">0</span>{{ $contents['stat4_suffix'] ?? '+' }}
-                    </h3>
-                    <p class="font-secondary text-sm text-gray-500">
-                        {{ $contents['stat4_label'] ?? 'Anos de Experiência' }}</p>
-                </div>
-                <!-- Stat 5 -->
-                <div>
-                    <h3 class="font-primary text-5xl md:text-6xl text-[#3b4b8a] mb-2 font-light">
-                        <span class="counter"
-                            data-target="{{ $contents['stat5_number'] ?? '18' }}">0</span>{{ $contents['stat5_suffix'] ?? '' }}
-                    </h3>
-                    <p class="font-secondary text-sm text-gray-500">
-                        {{ $contents['stat5_label'] ?? 'Províncias Alcançadas' }}</p>
-                </div>
-                <!-- Stat 6 -->
-                <div>
-                    <h3 class="font-primary text-5xl md:text-6xl text-[#3b4b8a] mb-2 font-light">
-                        <span class="counter"
-                            data-target="{{ $contents['stat6_number'] ?? '100' }}">0</span>{{ $contents['stat6_suffix'] ?? '%' }}
-                    </h3>
-                    <p class="font-secondary text-sm text-gray-500">
-                        {{ $contents['stat6_label'] ?? 'Cumprimento e Segurança' }}</p>
-                </div>
-                <!-- Stat 7 -->
-                <div>
-                    <h3 class="font-primary text-5xl md:text-6xl text-[#3b4b8a] mb-2 font-light">
-                        <span class="counter"
-                            data-target="{{ $contents['stat7_number'] ?? '20' }}">0</span>{{ $contents['stat7_suffix'] ?? '+' }}
-                    </h3>
-                    <p class="font-secondary text-sm text-gray-500">
-                        {{ $contents['stat7_label'] ?? 'Parceiros Estratégicos' }}</p>
-                </div>
-                <!-- Stat 8 -->
-                <div>
-                    <h3 class="font-primary text-5xl md:text-6xl text-[#3b4b8a] mb-2 font-light">
-                        <span class="counter"
-                            data-target="{{ $contents['stat8_number'] ?? '50' }}">0</span>{{ $contents['stat8_suffix'] ?? 'k' }}
-                    </h3>
-                    <p class="font-secondary text-sm text-gray-500">
-                        {{ $contents['stat8_label'] ?? 'Horas de Formação' }}</p>
-                </div>
+                @foreach($aboutStats as $stat)
+                    <div>
+                        <h3 class="font-primary text-5xl md:text-6xl text-[#3b4b8a] mb-2 font-light">
+                            <span class="counter"
+                                data-target="{{ preg_replace('/[^0-9]/', '', $stat['number']) }}">0</span>{{ $stat['suffix'] }}
+                        </h3>
+                        <p class="font-secondary text-sm text-gray-500">
+                            {{ $stat['label'] }}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -48,20 +48,26 @@
             </ul>
         </div>
 
-        <!-- Links Column 2: Áreas de Negócio -->
+        <!-- Links Column 2: Certificações -->
         <div class="flex flex-col gap-4">
             <h3
                 class="font-primary text-sm font-bold tracking-wider uppercase text-white/50 border-b border-white/5 pb-2">
-                ÁREAS DE NEGÓCIO</h3>
+                CERTIFICAÇÕES</h3>
             <ul class="flex flex-col gap-2.5 text-sm text-gray-400">
-                <li><a href="{{ route('panther-build') }}"
-                        class="hover:text-[#E41618]  transition-colors">PantherBUILD</a></li>
-                <li><a href="{{ route('panther-mat') }}" class="hover:text-[#E41618]  transition-colors">PantherMAT</a>
-                </li>
-                <li><a href="{{ route('panther-oil') }}" class="hover:text-[#E41618]  transition-colors">PantherOIL</a>
-                </li>
-                <li><a href="{{ route('enviro') }}" class="hover:text-[#E41618]  transition-colors">Enviro.AO</a>
-                </li>
+                <li><a href="{{ route('certifications') }}"
+                        class="hover:text-[#E41618] transition-colors">ISO 9001</a></li>
+                <li><a href="{{ route('certifications') }}"
+                        class="hover:text-[#E41618] transition-colors">HSE</a></li>
+                <li><a href="{{ route('certifications') }}"
+                        class="hover:text-[#E41618] transition-colors">ESG</a></li>
+                <li><a href="{{ route('certifications') }}"
+                        class="hover:text-[#E41618] transition-colors">Compliance</a></li>
+                <li><a href="{{ route('certifications') }}"
+                        class="hover:text-[#E41618] transition-colors">ANPG</a></li>
+                <li><a href="{{ route('certifications') }}"
+                        class="hover:text-[#E41618] transition-colors">Ministério Ambiente</a></li>
+                <li><a href="{{ route('certifications') }}"
+                        class="hover:text-[#E41618] transition-colors">Mirempet</a></li>
             </ul>
         </div>
 

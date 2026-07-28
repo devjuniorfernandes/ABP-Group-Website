@@ -20,7 +20,6 @@ use App\Http\Controllers\Admin\AdminPageController;
 // Public Pages
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about-group', [PageController::class, 'about'])->name('about');
-Route::get('/services', [PageController::class, 'services'])->name('services');
 
 // Projects (Portfolio)
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
@@ -88,4 +87,6 @@ Route::middleware('auth', 'is_admin')->prefix('admin')->name('admin.')->group(fu
     Route::get('pages', [AdminPageController::class, 'index'])->name('pages.index');
     Route::get('pages/{page_key}/edit', [AdminPageController::class, 'edit'])->name('pages.edit');
     Route::post('pages/{page_key}', [AdminPageController::class, 'update'])->name('pages.update');
+    Route::post('pages/{page_key}/add-stat', [AdminPageController::class, 'addStat'])->name('pages.add-stat');
+    Route::post('pages/{page_key}/remove-stat/{stat_index}', [AdminPageController::class, 'removeStat'])->name('pages.remove-stat');
 });

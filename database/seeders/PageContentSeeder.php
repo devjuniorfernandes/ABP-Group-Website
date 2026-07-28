@@ -1413,14 +1413,6 @@ class PageContentSeeder extends Seeder
                 'type' => 'textarea',
                 'value' => 'A nossa visão — ser o principal parceiro na execução de projectos complexos e sustentáveis de energia, engenharia e ambiente em Angola.',
             ],
-            [
-                'page_key' => 'home',
-                'section_key' => 'solutions',
-                'content_key' => 'solutions_desc',
-                'label' => 'Secção Soluções - Descrição Detalhada',
-                'type' => 'textarea',
-                'value' => 'A excelência operacional e o rigor na segurança são os fundamentos de todas as nossas intervenções. Colaboramos estreitamente com os nossos clientes e parceiros para ir além do convencional, superando desafios técnicos e logísticos e implementando soluções que acrescentam valor real e promovem o desenvolvimento industrial do país.',
-            ],
             // HOME CLIENTS INTRO
             [
                 'page_key' => 'home',
